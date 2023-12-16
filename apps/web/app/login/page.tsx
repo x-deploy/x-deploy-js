@@ -7,23 +7,31 @@ export default function Page(): JSX.Element {
   return (
      <div style={
          {
-            width: "300px",
-             height: "100%",
+            width: "100%",
+             height: "100vh",
              paddingLeft: "10px",
+             display: "flex",
+             justifyContent: "center",
+             alignItems: "center"
          }
      }>
-         <Card>
+         <Card style={
+                {
+                    width: "400px",
+                    height: "400px"
+                }
+         }>
              <CardContent>
-                <CardTitle>
-                    Hello
+                <CardTitle className="text-center">
+                    Welcome
                 </CardTitle>
+                 <TextInput label={"Username"} placeholder={"Enter your username"}/>
+                    <TextInput label={"Password"} placeholder={"Enter your password"}/>
+                    <Button variant={"primary"} className="mt-4">
+                        Login
+                    </Button>
             </CardContent>
          </Card>
-         <Button variant={"primary"} >
-                Hello
-            </Button>
-         <div style={{marginLeft:"10px"}}/>
-         <TextInput label={"Hello"} placeholder={"Search.."} />
      </div>
   );
 }

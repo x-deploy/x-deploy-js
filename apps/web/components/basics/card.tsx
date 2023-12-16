@@ -1,6 +1,6 @@
-export function Card({ children, className , noShadow} : { children: React.ReactNode, className?: string , noShadow?: boolean}) {
+export function Card({ children, className , noShadow, ...props} : { children: React.ReactNode, className?: string , noShadow?: boolean}) {
     return (
-        <div
+        <div {...props}
             className={"rounded-xl border border-gray-200 text-black  dark:text-white dark:border-gray-800" +
                 (noShadow ? "" : " shadow") +
                 (className ? " " + className : "")}>
@@ -19,7 +19,7 @@ export function CardContent({ children, className } : { children: React.ReactNod
 
 export function CardTitle({ children, className } : { children: React.ReactNode, className?: string }) {
     return (
-        <h2 className="text-xl font-semibold">
+        <h2 className={"text-xl font-semibold" + (className ? " " + className : "")}>
             {children}
         </h2>
     )
