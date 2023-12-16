@@ -1,7 +1,11 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import {Plus_Jakarta_Sans ,Inter } from "next/font/google";
 
+const plus = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  display: "swap" }
+);
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -16,7 +20,7 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={plus.className}>{children}</body>
     </html>
   );
 }

@@ -20,3 +20,17 @@ html, body {
 .bg-font-dark {
   color: #1a202c;
 }
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #fff;
+    color: #1a202c;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #000000;
+    color: #fff;
+  }
+}
