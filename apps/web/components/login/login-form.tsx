@@ -19,7 +19,7 @@ export function LoginForm() {
                     </CardTitle>
                     <div>
                         <TextInput label={"Username"} placeholder={"Enter your username"}/>
-                        <TextInput label={"Password"} placeholder={"Enter your password"}/>
+                        <TextInput type={"password"} label={"Password"} placeholder={"Enter your password"}/>
                     </div>
                     <div className={"my-3.5"}>
                         <Button variant={"primary"} className="mt-4"> Login</Button>

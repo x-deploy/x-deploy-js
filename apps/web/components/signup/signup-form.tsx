@@ -18,8 +18,8 @@ export function SignUpForm() {
                     <div>
                         <TextInput label={"Email"} placeholder={"Enter your email"}/>
                         <TextInput label={"Username"} placeholder={"Enter your username"}/>
-                        <TextInput label={"Password"} placeholder={"Enter your password"}/>
-                        <TextInput label={"Confirm password"} placeholder={"Enter your password"}/>
+                        <TextInput type={"password"} label={"Password"} placeholder={"Enter your password"}/>
+                        <TextInput type={"password"} label={"Confirm password"} placeholder={"Enter your password"}/>
                     </div>
                     <div className={"my-3.5"}>
                         <Button variant={"primary"} className="mt-4"> Sign up</Button>
