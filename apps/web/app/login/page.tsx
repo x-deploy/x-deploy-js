@@ -1,8 +1,7 @@
 import {Card, CardContent, CardTitle} from "../../components/basics/card";
-import {Button} from "../../components/basics/buttons";
-import {TextInput} from "../../components/basics/text-input";
-
-
+import {LoginForm} from "../../components/login/login-form";
+import Image from "next/image";
+import bober from "/images/bober.jpeg";
 export default function Page(): JSX.Element {
     return (
         <div style={
@@ -15,25 +14,46 @@ export default function Page(): JSX.Element {
                 alignItems: "center"
             }
         }>
-            <Card style={
-                {
-                    width: "400px",
-                    height: "400px"
-                }
-            }>
-                <CardContent>
-                    <CardTitle className="text-center">
-                        Welcome
-                    </CardTitle>
-                    <div>
-                        <TextInput label={"Username"} placeholder={"Enter your username"}/>
-                        <TextInput label={"Password"} placeholder={"Enter your password"}/>
+            <Card>
+                <div style={
+                    {
+                        width: "1000px",
+                        height: "600px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between"
+                    }
+                }>
+                    <div style={
+                        {
+                            width: "50%",
+                            height: "100%",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            position: "relative",
+                        }
+                    }>
+                        <Image style={{
+                            borderRadius: "10px 0px 0px 10px",
+                        }}  objectFit={"cover"}
+                            fill src={bober} alt={"login-image"}/>
                     </div>
-                    <div className={"my-3.5"}>
-                    <Button variant={"primary"} className="mt-4"> Login</Button>
+                        <div style={
+                        {
+                            width: "50%",
+                            height: "100%",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center"
+                        }
+                    }>
+                        <LoginForm/>
                     </div>
-                </CardContent>
+
+                </div>
             </Card>
+
         </div>
     );
 }
