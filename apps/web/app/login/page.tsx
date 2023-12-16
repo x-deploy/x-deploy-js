@@ -1,59 +1,26 @@
 import {Card, CardContent, CardTitle} from "../../components/basics/card";
 import {LoginForm} from "../../components/login/login-form";
 import Image from "next/image";
-import bober from "/images/bober.jpeg";
+import canada from "/images/canada.jpeg";
 export default function Page(): JSX.Element {
     return (
-        <div style={
-            {
-                width: "100%",
-                height: "100vh",
-                paddingLeft: "10px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-            }
-        }>
+        <div className="w-full h-screen p-2.5 flex justify-center items-center">
             <Card>
-                <div style={
-                    {
-                        width: "1000px",
-                        height: "600px",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "space-between"
-                    }
-                }>
-                    <div style={
-                        {
-                            width: "50%",
-                            height: "100%",
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            position: "relative",
-                        }
-                    }>
-                        <Image style={{
-                            borderRadius: "10px 0px 0px 10px",
-                        }}  objectFit={"cover"}
-                            fill src={bober} alt={"login-image"}/>
+                <div className="flex w-auto lg:w-[1000px] h-[600px] justify-between items-center">
+                    <div className="hidden lg:flex w-1/2 h-full justify-center items-center relative">
+                        <Image
+                            src={canada}
+                            alt="login-image"
+                            layout="fill"
+                            objectFit="cover"
+                            className="rounded-tl-lg rounded-bl-lg"
+                        />
                     </div>
-                        <div style={
-                        {
-                            width: "50%",
-                            height: "100%",
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center"
-                        }
-                    }>
+                    <div className="flex w-auto lg:w-1/2  h-full justify-center items-center">
                         <LoginForm/>
                     </div>
-
                 </div>
             </Card>
-
         </div>
     );
 }
