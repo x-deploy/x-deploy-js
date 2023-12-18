@@ -15,7 +15,7 @@ export default function Page(): JSX.Element {
                             className="rounded-tl-lg rounded-bl-lg"
                         />
                     </div>
-                    <div className="flex w-auto lg:w-1/2  h-full justify-center items-center">
+                    <div className="flex w-full lg:w-1/2  h-full justify-center items-center">
                         <LoginForm/>
                     </div>
                 </div>
