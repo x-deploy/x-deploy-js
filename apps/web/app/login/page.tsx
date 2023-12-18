@@ -5,8 +5,7 @@ import canada from "/images/canada.jpeg";
 export default function Page(): JSX.Element {
     return (
         <div className="w-full h-screen p-2.5 flex justify-center items-center">
-            <Card>
-                <div className="flex w-auto lg:w-[1000px] h-[600px] justify-between items-center">
+                <div className="flex w-full h-full justify-between items-center">
                     <div className="hidden lg:flex w-1/2 h-full justify-center items-center relative">
                         <Image
                             src={canada}
@@ -20,7 +19,6 @@ export default function Page(): JSX.Element {
                         <LoginForm/>
                     </div>
                 </div>
-            </Card>
         </div>
     );
 }
