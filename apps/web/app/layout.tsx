@@ -1,6 +1,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import {Plus_Jakarta_Sans ,Inter } from "next/font/google";
+import {Toaster} from "sonner";
+
 
 const plus = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -20,7 +22,10 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en">
-      <body className={plus.className}>{children}</body>
+      <body className={plus.className}>
+      {children}
+      <Toaster />
+      </body>
     </html>
   );
 }
