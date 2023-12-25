@@ -1,14 +1,15 @@
+'use client'
 import React from "react";
 import Link from "next/link";
 
-export function Button({children, className, variant, disabled, onClick, href}: {
+export function Button({children, className, variant, disabled, click, href, props}: {
     children: React.ReactNode;
     className?: string;
     variant?: "primary" | "secondary"
     disabled?: boolean;
-    onClick?: () => void;
+    click?: () => void;
     href?: string;
-}): JSX.Element {
+} & React.ComponentProps<"button">): JSX.Element {
     const button = (<button
         className={"rounded-lg px-4 py-2 text-sm font-semibold  disabled:bg-gray-300 disabled:cursor-not-allowed w-full h-full " +
             (variant === "primary"
@@ -19,7 +20,7 @@ export function Button({children, className, variant, disabled, onClick, href}: 
                 : "") +
             (className ? " " + className : "")}
         disabled={disabled}
-        onClick={onClick}>
+        onClick={click} {...props}>
         {children}
     </button>);
 

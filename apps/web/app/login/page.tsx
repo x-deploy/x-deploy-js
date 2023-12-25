@@ -1,8 +1,8 @@
-import {Card, CardContent, CardTitle} from "../../components/basics/card";
 import {LoginForm} from "../../components/login/login-form";
 import Image from "next/image";
 import canada from "/images/canada.jpeg";
-export default function Page(): JSX.Element {
+export default async function Page(): Promise<JSX.Element> {
+
     return (
         <div className="w-full h-screen p-2.5 flex justify-center items-center">
                 <div className="flex w-full h-full justify-between items-center">

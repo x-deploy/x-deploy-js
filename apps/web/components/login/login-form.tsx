@@ -1,6 +1,7 @@
-import {Card, CardContent, CardTitle} from "../basics/card";
+import {CardContent, CardTitle} from "../basics/card";
 import {TextInput} from "../basics/text-input";
 import {Button} from "../basics/buttons";
+import {login} from "../../app/lib/action";
 
 
 export function LoginForm() {
@@ -17,14 +18,16 @@ export function LoginForm() {
                     <CardTitle className="text-center">
                         Welcome
                     </CardTitle>
-                    <div>
-                        <TextInput label={"Username"} placeholder={"Enter your username"}/>
-                        <TextInput type={"password"} label={"Password"} placeholder={"Enter your password"}/>
-                    </div>
-                    <div className={"my-3.5"}>
-                        <Button variant={"primary"} className="mt-4"> Login</Button>
-                        <Button variant={"secondary"} className="mt-4" href={"/signup"}> Sign up</Button>
-                    </div>
+                    <form action={login}>
+                        <div>
+                            <TextInput name={"email"} label={"Username"} placeholder={"Enter your username"}/>
+                            <TextInput name={"password"} type={"password"} label={"Password"} placeholder={"Enter your password"}/>
+                        </div>
+                        <div className={"my-3.5"}>
+                            <Button type={"submit"}  variant={"primary"} className="mt-4">Login</Button>
+                            <Button variant={"secondary"} className="mt-4" href={"/signup"}> Sign up</Button>
+                        </div>
+                    </form>
                 </CardContent>
             </div>
         </>

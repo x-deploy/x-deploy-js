@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../otopilot/website/otopilot-website/.idea/otopilot-website-next.iml" filepath="$PROJECT_DIR$/../otopilot/website/otopilot-website/.idea/otopilot-website-next.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/x-deploy-js.iml" filepath="$PROJECT_DIR$/.idea/x-deploy-js.iml" />
     </modules>
   </component>
