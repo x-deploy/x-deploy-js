@@ -1,6 +1,9 @@
 import {Card, CardContent, CardTitle} from "../basics/card";
 import {TextInput} from "../basics/text-input";
 import {Button} from "../basics/buttons";
+import {sign} from "crypto";
+import {signup} from "../../app/lib/action";
+import {SignupClientForm} from "./signup-client-form";
 
 export function SignUpForm() {
     return (
@@ -15,16 +18,7 @@ export function SignUpForm() {
                     <CardTitle className="text-center">
                         Sign up
                     </CardTitle>
-                    <div>
-                        <TextInput label={"Email"} placeholder={"Enter your email"}/>
-                        <TextInput label={"Username"} placeholder={"Enter your username"}/>
-                        <TextInput type={"password"} label={"Password"} placeholder={"Enter your password"}/>
-                        <TextInput type={"password"} label={"Confirm password"} placeholder={"Enter your password"}/>
-                    </div>
-                    <div className={"my-3.5"}>
-                        <Button variant={"primary"} className="mt-4"> Sign up</Button>
-                        <Button variant={"secondary"} className="mt-4" href={"/login"}> Login</Button>
-                    </div>
+                    <SignupClientForm/>
                 </CardContent>
             </div>
         </>
