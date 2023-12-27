@@ -1,7 +1,7 @@
 export function Card({ children, className , noShadow, ...props} : { children: React.ReactNode, className?: string , noShadow?: boolean}) {
     return (
         <div {...props}
-            className={"rounded-xl border border-gray-200 text-black  dark:text-white dark:border-gray-800" +
+            className={"rounded-xl border border-gray-200 text-black  dark:text-white dark:border-gray-800 " +
                 (noShadow ? "" : " shadow") +
                 (className ? " " + className : "")}>
             {children}
