@@ -1,5 +1,5 @@
 "use client"
-import {login} from "../../app/lib/action";
+import {login} from "../../lib/action";
 import {TextInput} from "../basics/text-input";
 import {Button} from "../basics/buttons";
 import {toast} from "sonner";

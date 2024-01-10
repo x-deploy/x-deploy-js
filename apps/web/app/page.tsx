@@ -9,7 +9,6 @@ import {Hero} from "../components/index/hero";
 import {Button} from "../components/basics/buttons";
 import {DropdownContent} from "../components/basics/client/dropdown-content";
 import {SpaceBar} from "../components/basics/space-bar";
-
 export default function Page(): JSX.Element {
 
     const [isOpen, setIsOpen] = React.useState(false);
