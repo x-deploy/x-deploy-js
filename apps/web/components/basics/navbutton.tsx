@@ -5,7 +5,7 @@ export function Navbutton({children, href} : {
     children?: React.ReactNode,
     href?: string
     } & React.ComponentProps<"button">) : JSX.Element {
-    const button = (<button className={" text-gray-500 hover:text-black dark:hover:text-white h-full p-2"}>
+    const button = (<button className={"text-sm text-gray-500 hover:text-black dark:hover:text-white  pr-4 pl-4"}>
         {children}
     </button>)
     return href ? (
@@ -13,6 +13,8 @@ export function Navbutton({children, href} : {
             {button}
         </Link>
     ) : (
-        button
+        <div>
+            {button}
+        </div>
     );
 }
