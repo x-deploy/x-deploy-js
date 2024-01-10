@@ -11,6 +11,7 @@ export const login = async (formData: FormData) => {
         headers: {
             'Content-Type': 'application/json',
         },
+        cache: 'no-cache',
         body: JSON.stringify({email, password}),
     })
     const data = await response.json()
