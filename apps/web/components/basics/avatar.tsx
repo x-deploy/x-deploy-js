@@ -6,7 +6,7 @@ export function Avatar({ src, className}: {
     className?: string;
 }): JSX.Element {
     return (
-        <div className={clsx("relative rounded-full overflow-hidden", className)} style={{width: "30px", height: "30px"}}>
+        <div className={clsx("relative rounded-full overflow-hidden", className)} style={{width: "35px", height: "35px"}}>
             <Image src={src} alt={"avatar"} layout="fill" objectFit="cover"/>
         </div>
     )
