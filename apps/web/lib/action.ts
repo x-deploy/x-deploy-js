@@ -1,5 +1,6 @@
 "use server"
 import {redirect} from "next/navigation";
+import { cookies } from 'next/headers'
 import {toast} from "sonner";
 
 export const login = async (formData: FormData) => {
@@ -13,7 +14,9 @@ export const login = async (formData: FormData) => {
         body: JSON.stringify({email, password}),
     })
     const data = await response.json()
+    console.log(data)
     if (response.ok) {
+        cookies().set('token', data.token)
         redirect('/')
     } else {
         return data

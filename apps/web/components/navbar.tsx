@@ -1,8 +1,14 @@
 import {Navbutton} from "./basics/navbutton";
 import {Avatar} from "./basics/avatar";
 import bober from "/images/bober.jpeg";
+import {getOrganizations} from "../lib/fetch";
+import {cookies} from "next/headers";
 
-export const Navbar = () => {
+export const Navbar = async  () => {
+
+    console.log(cookies().get("token")?.value)
+    const organizations = await getOrganizations(cookies().get("token")?.value)
+
     return (
         <div className="flex flex-col justify-between items-center w-full">
             <div className={"flex justify-between w-full pt-3 pl-6 pr-6"}>
@@ -24,6 +30,7 @@ export const Navbar = () => {
                 <Navbutton href={"/help"}>Help</Navbutton>
                 <Navbutton href={"/help"}>Help</Navbutton>
                 <Navbutton href={"/help"}>Help</Navbutton>
+
             </div>
         </div>
     )
