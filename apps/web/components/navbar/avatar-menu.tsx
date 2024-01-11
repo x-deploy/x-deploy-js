@@ -20,7 +20,7 @@ export const AvatarMenu = ({img, topText}: {
                         width: "300px",
                     }
                 }>
-                    <Card className={"bg-black text-sm"}>
+                    <Card className={"dark:bg-black bg-white text-sm"}>
                             <div className={"m-4 text-gray-500 font-light"}>
                                 {topText}
                             </div>
@@ -43,7 +43,7 @@ export const AvatarMenuButton = ({href, children}: {
 }) => {
     return (
         <Link href={href} passHref>
-            <div className={"dark:text-gray-500 dark:hover:text-white p-2 pl-4 font-light dark:hover:bg-gray-800 hover:bg-gray-200"}>
+            <div className={"text-gray-500 dark:hover:text-white hover:text-black p-2 pl-4 font-light dark:hover:bg-gray-900 hover:bg-gray-200 transition-all duration-75"}>
             {children}
              </div>
         </Link>
