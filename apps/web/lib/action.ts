@@ -18,7 +18,7 @@ export const login = async (formData: FormData) => {
     console.log(data)
     if (response.ok) {
         cookies().set('token', data.token)
-        redirect('/')
+        redirect('/dashboard')
     } else {
         return data
     }
