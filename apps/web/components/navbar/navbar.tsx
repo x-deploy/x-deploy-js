@@ -27,7 +27,7 @@ export const Navbar = async  () => {
                         <Navbutton>Help</Navbutton>
                         <Navbutton>Settings</Navbutton>
                     </div>
-                   <AvatarMenu img={img}/>
+                   <AvatarMenu img={img} topText={infos.email}/>
                 </div>
             </div>
             <div className={"w-full border-b pb-2 dark:border-gray-700 border-gray-200 pl-6 pr-6 flex items-center mt-2"}>
