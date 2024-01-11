@@ -4,6 +4,7 @@ import bober from "/images/bober.jpeg";
 import {getOrganizations, getProfileInfo} from "../../lib/fetch";
 import {cookies} from "next/headers";
 import {OrganisationSwitcher} from "./organisation-switcher";
+import {AvatarMenu} from "./avatar-menu";
 
 export const Navbar = async  () => {
 
@@ -26,7 +27,7 @@ export const Navbar = async  () => {
                         <Navbutton>Help</Navbutton>
                         <Navbutton>Settings</Navbutton>
                     </div>
-                    <Avatar src={img}/>
+                   <AvatarMenu img={img}/>
                 </div>
             </div>
             <div className={"w-full border-b pb-2 dark:border-gray-700 border-gray-200 pl-6 pr-6 flex items-center mt-2"}>
