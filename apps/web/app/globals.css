@@ -26,12 +26,18 @@ html, body {
     background-color: #fff;
     color: #1a202c;
   }
+    * {
+      --icon-color: #1a202c
+    }
 }
 
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #000000;
     color: #fff;
+  }
+  * {
+    --icon-color: #fff
   }
 }
 

@@ -17,7 +17,7 @@ export function MiniAvatar({ src, className}: {
     className?: string;
 }): JSX.Element {
     return (
-        <div className={clsx("relative rounded-full overflow-hidden", className)} style={{width: "20px", height: "20px"}}>
+        <div className={clsx("relative rounded-full overflow-hidden", className)} style={{width: "20px", height: "20px", minWidth: "20px"}}>
             <Image src={src} alt={"avatar"} layout="fill" objectFit="cover"/>
         </div>
     )

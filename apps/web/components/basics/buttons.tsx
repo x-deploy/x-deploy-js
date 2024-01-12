@@ -1,8 +1,7 @@
-'use client'
 import React from "react";
 import Link from "next/link";
 
-export function Button({children, className, variant, disabled, click, href, props}: {
+export function Button({children, className, variant, disabled, click, href}: {
     children: React.ReactNode;
     className?: string;
     variant?: "primary" | "secondary"
@@ -20,7 +19,7 @@ export function Button({children, className, variant, disabled, click, href, pro
                 : "") +
             (className ? " " + className : "")}
         disabled={disabled}
-        onClick={click} {...props}>
+        onClick={click}>
         {children}
     </button>);
 
