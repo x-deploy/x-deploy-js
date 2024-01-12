@@ -31,12 +31,12 @@ export const OrganisationSwitcher = async () => {
                     <Card className={"dark:bg-black bg-white text-sm"}>
                         <div className={"flex"}>
                             <div className={"border-r dark:border-gray-800 w-1/2"}>
-                                <p className={"text-gray-500 text-xs m-2"}>Organizations</p>
+                                <p className={"text-gray-500 text-xs m-3"}>Organizations</p>
                                 <div>
                                     {organizations[0] ? organizations.map((org: any) => {
                                         return (
                                             <div
-                                                className={"flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-900 transition-all duration-75 w-full cursor-pointer"}>
+                                                className={"flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-900 transition-all duration-75 w-full cursor-pointer"}>
                                                 <MiniAvatar src={org.logoUrl ? org.logoUrl : bober}/>
                                                 <div className={"ml-2 truncate"}>
                                                     {org.name}
@@ -44,7 +44,7 @@ export const OrganisationSwitcher = async () => {
                                             </div>
                                         )
                                     }) : <></>}
-                                    <div className={"flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-900 transition-all duration-75 w-full cursor-pointer"}>
+                                    <div className={"flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-900 transition-all duration-75 w-full cursor-pointer"}>
                                         <MiniRoundedPlusIcon/>
                                         <div className={"ml-2 truncate"}>
                                             New
@@ -53,12 +53,12 @@ export const OrganisationSwitcher = async () => {
                                 </div>
                             </div>
                             <div className={"w-1/2"}>
-                                <p className={"text-gray-500 text-xs m-2"}>Projects</p>
+                                <p className={"text-gray-500 text-xs m-3"}>Projects</p>
                                 <div>
                                     {organizations[0] ? organizations.map((org: any) => {
                                         return (
                                             <div
-                                                className={"flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-900 transition-all duration-75 w-full cursor-pointer"}>
+                                                className={"flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-900 transition-all duration-75 w-full cursor-pointer"}>
                                                 <MiniAvatar src={org.logoUrl ? org.logoUrl : bober}/>
                                                 <div className={"ml-2 truncate"}>
                                                     {org.name}
@@ -66,7 +66,7 @@ export const OrganisationSwitcher = async () => {
                                             </div>
                                         )
                                     }) : <></>}
-                                    <div className={"flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-900 transition-all duration-75 w-full cursor-pointer"}>
+                                    <div className={"flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-900 transition-all duration-75 w-full cursor-pointer"}>
                                         <MiniRoundedPlusIcon/>
                                         <div className={"ml-2 truncate"}>
                                             New
