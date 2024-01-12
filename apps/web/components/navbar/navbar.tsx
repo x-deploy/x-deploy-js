@@ -6,7 +6,9 @@ import {cookies} from "next/headers";
 import {OrganisationSwitcher} from "./organisation-switcher";
 import {AvatarMenu} from "./avatar-menu";
 
-export const Navbar = async  () => {
+export const Navbar = async  ({navTab} : {
+    navTab: Array<{name: string, href: string}>
+}) => {
 
     console.log(cookies().get("token")?.value)
     const infos = await getProfileInfo(cookies().get("token")?.value)
@@ -23,17 +25,19 @@ export const Navbar = async  () => {
                 <div className={" items-center hidden md:flex"}>
                     <div className={"flex pr-8"}>
                         <Navbutton href={"/help"}>Help</Navbutton>
-                        <Navbutton href={"/help"}>Help</Navbutton>
-                        <Navbutton>Help</Navbutton>
+                        <Navbutton href={"/help"}>Documentation</Navbutton>
+                        <Navbutton href={"/organization"}>Organization</Navbutton>
                     </div>
                    <AvatarMenu img={img} topText={infos.email}/>
                 </div>
             </div>
             <div className={"w-full border-b pb-3 dark:border-gray-700 border-gray-200 pl-6 pr-6 flex items-center mt-2"}>
-                <Navbutton href={"/help"}>Help</Navbutton>
-                <Navbutton href={"/help"}>Help</Navbutton>
-                <Navbutton href={"/help"}>Help</Navbutton>
-                <Navbutton href={"/help"}>Help</Navbutton>
+                {navTab ? navTab.map((tab) => {
+                    return (
+                        <Navbutton href={tab.href}>{tab.name}</Navbutton>
+                        )
+                }
+                ) : <></>}
             </div>
         </div>
     )
