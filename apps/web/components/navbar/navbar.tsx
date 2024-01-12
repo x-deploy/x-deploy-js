@@ -20,22 +20,20 @@ export const Navbar = async  () => {
                     </div>
                     <OrganisationSwitcher/>
                 </div>
-                <div className={"flex items-center"}>
+                <div className={" items-center hidden md:flex"}>
                     <div className={"flex pr-8"}>
                         <Navbutton href={"/help"}>Help</Navbutton>
                         <Navbutton href={"/help"}>Help</Navbutton>
                         <Navbutton>Help</Navbutton>
-                        <Navbutton>Settings</Navbutton>
                     </div>
                    <AvatarMenu img={img} topText={infos.email}/>
                 </div>
             </div>
-            <div className={"w-full border-b pb-2 dark:border-gray-700 border-gray-200 pl-6 pr-6 flex items-center mt-2"}>
+            <div className={"w-full border-b pb-3 dark:border-gray-700 border-gray-200 pl-6 pr-6 flex items-center mt-2"}>
                 <Navbutton href={"/help"}>Help</Navbutton>
                 <Navbutton href={"/help"}>Help</Navbutton>
                 <Navbutton href={"/help"}>Help</Navbutton>
                 <Navbutton href={"/help"}>Help</Navbutton>
-
             </div>
         </div>
     )
