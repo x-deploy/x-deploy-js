@@ -7,7 +7,9 @@ import {Popover, PopoverContent, PopoverTrigger} from "../../@/components/ui/pop
 import {Card} from "../basics/card";
 import {MiniRoundedPlusIcon} from "../svg/rounded-plus-icon";
 
-export const OrganisationSwitcher = async () => {
+export const OrganisationSwitcher = async ({project} : {
+    project?: boolean
+}) => {
 
     const organizations = await getOrganizations(cookies().get("token")?.value)
     console.log(organizations)
@@ -18,8 +20,14 @@ export const OrganisationSwitcher = async () => {
             <Popover>
                 <PopoverTrigger asChild>
                     <Button variant={"secondary"} className={"flex"}><MiniAvatar src={img}
-                                                                                 className={"mr-2"}/>{name}<span
-                        className={"text-gray-500"}>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;</span>project name</Button>
+                                                                                 className={"mr-2"}/>{name}
+                        {project ?
+                            <><span
+                                className={"text-gray-500"}>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;</span>project name</>
+                            :
+                            <></>
+                        }
+                        </Button>
                 </PopoverTrigger>
                 <PopoverContent style={
                     {

@@ -6,8 +6,9 @@ import {cookies} from "next/headers";
 import {OrganisationSwitcher} from "./organisation-switcher";
 import {AvatarMenu} from "./avatar-menu";
 
-export const Navbar = async  ({navTab} : {
+export const Navbar = async  ({navTab, project} : {
     navTab: Array<{name: string, href: string}>
+    project: boolean
 }) => {
 
     console.log(cookies().get("token")?.value)
@@ -22,7 +23,7 @@ export const Navbar = async  ({navTab} : {
                     </div>
                     <OrganisationSwitcher/>
                 </div>
-                <div className={" items-center hidden md:flex"}>
+                <div className={"items-center hidden md:flex"}>
                     <div className={"flex pr-8"}>
                         <Navbutton href={"/help"}>Help</Navbutton>
                         <Navbutton href={"/help"}>Documentation</Navbutton>
