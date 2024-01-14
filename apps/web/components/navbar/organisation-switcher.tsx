@@ -40,7 +40,7 @@ export const OrganisationSwitcher = async ({project} : {
                 } arrowPadding={100} alignOffset={100}>
                     <Card  className={"dark:bg-black bg-white text-sm max-h-44"}>
                         <div className={"flex max-h-44"}>
-                            <div className={"border-r dark:border-gray-800 w-1/2 overflow-y-scroll"}>
+                            <div className={"border-r dark:border-gray-800 w-1/2 overflow-y-auto"}>
                                 <p className={"text-gray-500 text-xs m-3"}>Organizations</p>
                                 <div>
                                     {organizations[0] ? organizations.map((org: any) => {
@@ -62,7 +62,7 @@ export const OrganisationSwitcher = async ({project} : {
                                     </div>
                                 </div>
                             </div>
-                            <div className={"w-1/2 overflow-scroll"}>
+                            <div className={"w-1/2 overflow-y-auto"}>
                                 <p className={"text-gray-500 text-xs m-3"}>Projects</p>
                                 <div>
                                     {projets[0] ? projets.map((org: any) => {
