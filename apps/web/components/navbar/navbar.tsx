@@ -13,7 +13,7 @@ export const Navbar = async  ({navTab, project} : {
 
     console.log(cookies().get("token")?.value)
     const infos = await getProfileInfo(cookies().get("token")?.value)
-    const img = infos?.avatar_url ? infos.profilePictureUrl : bober
+    const img = infos?.profilePictureUrl ? infos.profilePictureUrl : bober
     return (
         <div className="flex flex-col justify-between items-center w-full">
             <div className={"flex justify-between w-full pt-3 pl-6 pr-6"}>

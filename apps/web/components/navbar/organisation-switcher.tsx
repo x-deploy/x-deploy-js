@@ -1,4 +1,4 @@
-import {getOrganizations} from "../../lib/fetch";
+import {getOrganizations, getProjects} from "../../lib/fetch";
 import {cookies} from "next/headers";
 import {Button} from "../basics/buttons";
 import {Avatar, MiniAvatar} from "../basics/avatar";
@@ -11,10 +11,12 @@ export const OrganisationSwitcher = async ({project} : {
     project?: boolean
 }) => {
 
-    const organizations = await getOrganizations(cookies().get("token")?.value)
+    const token = cookies().get("token")?.value
+    const organizations = await getOrganizations(token)
     console.log(organizations)
     const img = organizations[0] ? organizations[0].logoUrl ? organizations[0].logoUrl : bober : bober
     const name = organizations[0] ? organizations[0].name : "error"
+    const projets = await getProjects(token)
     return (
         <div>
             <Popover>
@@ -36,9 +38,9 @@ export const OrganisationSwitcher = async ({project} : {
                         maxWidth: "600px",
                     }
                 } arrowPadding={100} alignOffset={100}>
-                    <Card className={"dark:bg-black bg-white text-sm"}>
-                        <div className={"flex"}>
-                            <div className={"border-r dark:border-gray-800 w-1/2"}>
+                    <Card  className={"dark:bg-black bg-white text-sm max-h-44"}>
+                        <div className={"flex max-h-44"}>
+                            <div className={"border-r dark:border-gray-800 w-1/2 overflow-y-scroll"}>
                                 <p className={"text-gray-500 text-xs m-3"}>Organizations</p>
                                 <div>
                                     {organizations[0] ? organizations.map((org: any) => {
@@ -52,7 +54,7 @@ export const OrganisationSwitcher = async ({project} : {
                                             </div>
                                         )
                                     }) : <></>}
-                                    <div className={"flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-900 transition-all duration-75 w-full cursor-pointer"}>
+                                    <div className={"flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-900 transition-all duration-75 w-full cursor-pointer rounded-bl-xl"}>
                                         <MiniRoundedPlusIcon/>
                                         <div className={"ml-2 truncate"}>
                                             New
@@ -60,10 +62,10 @@ export const OrganisationSwitcher = async ({project} : {
                                     </div>
                                 </div>
                             </div>
-                            <div className={"w-1/2"}>
+                            <div className={"w-1/2 overflow-scroll"}>
                                 <p className={"text-gray-500 text-xs m-3"}>Projects</p>
                                 <div>
-                                    {organizations[0] ? organizations.map((org: any) => {
+                                    {projets[0] ? projets.map((org: any) => {
                                         return (
                                             <div
                                                 className={"flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-900 transition-all duration-75 w-full cursor-pointer"}>
