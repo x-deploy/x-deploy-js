@@ -45,7 +45,11 @@ export const OrganisationSwitcher = async ({project} : {
                                 <div>
                                     {organizations[0] ? organizations.map((org: any) => {
                                         return (
-                                            <div
+                                            <div style={
+                                                {
+                                                    scrollbarWidth: "none",
+                                                }
+                                            }
                                                 className={"flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-900 transition-all duration-75 w-full cursor-pointer"}>
                                                 <MiniAvatar src={org.logoUrl ? org.logoUrl : bober}/>
                                                 <div className={"ml-2 truncate"}>
@@ -62,7 +66,11 @@ export const OrganisationSwitcher = async ({project} : {
                                     </div>
                                 </div>
                             </div>
-                            <div className={"w-1/2 overflow-y-auto"}>
+                            <div style={
+                                {
+                                    scrollbarWidth: "none",
+                                }
+                            } className={"w-1/2 overflow-y-auto"}>
                                 <p className={"text-gray-500 text-xs m-3"}>Projects</p>
                                 <div>
                                     {projets[0] ? projets.map((org: any) => {
