@@ -20,7 +20,9 @@ export default function Layout({children}: { children: React.ReactNode }) {
                     },
                 ]
             }/>
-            {children}
+            <div className={"mx-40 my-1"}>
+                {children}
+            </div>
         </div>
     )
 }

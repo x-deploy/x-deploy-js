@@ -1,10 +1,35 @@
-export const ProjectCard = ({ project }: { project: any }) => {
+import bober from "/images/bober.jpeg";
+import {Card, CardContent} from "../basics/card";
+import Image from "next/image";
+import {Button} from "../basics/buttons";
+
+export const ProjectCard = ({project, href}: {
+    project: {
+        id: string;
+        name: string;
+        description: string;
+        logoUrl: string;
+        organizationId: string;
+    },
+    href: string
+}) => {
+
+    const image = project.logoUrl ? project.logoUrl : bober
+
     return (
-        <div className="flex flex-col bg-white rounded-lg shadow-lg overflow-hidden">
-            <div className="flex-shrink-0">
-                <img className="h-48 w-full object-cover" src={project.image} alt="project-logo" />
+        <Button variant={"secondary"} href={href}
+                className={"dark:bg-black bg-white text-sm max-h-44 hover:shadow-lg transition-all duration-75 cursor-pointer"}>
+            <div className={"px-2 py-3 "}>
+                <div className={"flex items-center"}>
+                    <Image alt={"project-image"} width={20} height={20} src={image}
+                           className={"rounded-full w-10 h-10"}/>
+                    <div className={"ml-3"}>
+                        <p className={"text-sm font-bold"}>{project.name}</p>
+                        <p className={"text-xs text-gray-500 overflow-hidden"}>{project.description}</p>
+                    </div>
+                </div>
             </div>
-        </div>
+        </Button>
     )
 
 

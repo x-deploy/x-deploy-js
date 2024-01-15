@@ -3,15 +3,15 @@ import {Avatar} from "../basics/avatar";
 import bober from "/images/bober.jpeg";
 import {getOrganizations, getProfileInfo} from "../../lib/fetch";
 import {cookies} from "next/headers";
-import {OrganisationSwitcher} from "./organisation-switcher";
+import {OrganisationSwitcher, OrganisationSwitcherSkeleton} from "./organisation-switcher";
 import {AvatarMenu} from "./avatar-menu";
+import {Suspense} from "react";
 
-export const Navbar = async  ({navTab, project} : {
-    navTab: Array<{name: string, href: string}>
+export const Navbar = async ({navTab, project}: {
+    navTab: Array<{ name: string, href: string }>
     project: boolean
 }) => {
 
-    console.log(cookies().get("token")?.value)
     const infos = await getProfileInfo(cookies().get("token")?.value)
     const img = infos?.profilePictureUrl ? infos.profilePictureUrl : bober
     return (
@@ -21,7 +21,9 @@ export const Navbar = async  ({navTab, project} : {
                     <div className={"flex items-center mr-5"}>
                         <h1>X-Deploy</h1>
                     </div>
-                    <OrganisationSwitcher/>
+                    <Suspense fallback={<OrganisationSwitcherSkeleton/>}>
+                        <OrganisationSwitcher/>
+                    </Suspense>
                 </div>
                 <div className={"items-center hidden md:flex"}>
                     <div className={"flex pr-8"}>
@@ -29,15 +31,16 @@ export const Navbar = async  ({navTab, project} : {
                         <Navbutton href={"/help"}>Documentation</Navbutton>
                         <Navbutton href={"/organization"}>Organization</Navbutton>
                     </div>
-                   <AvatarMenu img={img} topText={infos.email}/>
+                    <AvatarMenu img={img} topText={infos.email}/>
                 </div>
             </div>
-            <div className={"w-full border-b pb-3 dark:border-gray-700 border-gray-200 pl-6 pr-6 flex items-center mt-2"}>
+            <div
+                className={"w-full border-b pb-3 dark:border-gray-700 border-gray-200 pl-6 pr-6 flex items-center mt-2"}>
                 {navTab ? navTab.map((tab) => {
-                    return (
-                        <Navbutton href={tab.href}>{tab.name}</Navbutton>
+                        return (
+                            <Navbutton href={tab.href}>{tab.name}</Navbutton>
                         )
-                }
+                    }
                 ) : <></>}
             </div>
         </div>

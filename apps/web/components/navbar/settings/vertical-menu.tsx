@@ -11,8 +11,6 @@ export const VerticalMenu = ({itemList}: {
 }) => {
 
     const pathname = usePathname();
-    console.log(pathname)
-    console.log(itemList)
     return (
         <div className={"h-full min-w-full"}>
             <div className="flex flex-col h-full">

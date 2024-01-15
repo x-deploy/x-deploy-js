@@ -22,3 +22,14 @@ export function MiniAvatar({ src, className}: {
         </div>
     )
 }
+
+export function BigAvatar({ src, className}: {
+    src: any;
+    className?: string;
+}): JSX.Element {
+    return (
+        <div className={clsx("relative rounded-full overflow-hidden", className)} style={{width: "80px", height: "80px"}}>
+            <Image src={src} alt={"avatar"} layout="fill" objectFit="cover"/>
+        </div>
+    )
+}

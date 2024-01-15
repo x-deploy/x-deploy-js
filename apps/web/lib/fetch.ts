@@ -1,7 +1,7 @@
+import {toast} from "sonner";
 
 
 export const getOrganizations = async (token?: string) => {
-    console.log(token)
     const response = await fetch(process.env.NEXT_PUBLIC_API_URL + '/organization', {
         method: 'GET',
         headers: {
@@ -11,7 +11,6 @@ export const getOrganizations = async (token?: string) => {
         cache: 'no-cache',
     })
     const data = await response.json()
-    console.log(data)
     if (response.ok) {
         return data
     } else {
@@ -21,7 +20,6 @@ export const getOrganizations = async (token?: string) => {
 
 
 export const getProfileInfo = async (token?: string) => {
-    console.log(token)
     const response = await fetch(process.env.NEXT_PUBLIC_API_URL + '/account', {
         method: 'GET',
         headers: {
@@ -32,9 +30,7 @@ export const getProfileInfo = async (token?: string) => {
         },
         cache: 'no-cache',
     })
-    console.log(response)
     const data = await response.json()
-    console.log(data)
     if (response.ok) {
         return data
     } else {
@@ -43,12 +39,30 @@ export const getProfileInfo = async (token?: string) => {
 }
 
 export const getProjects = async (token?: string, organizationId?: string) => {
-    console.log(token)
     const response = await fetch(process.env.NEXT_PUBLIC_API_URL + `/organization/${organizationId}/project`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json'
+        },
+        cache: 'no-cache',
+    })
+    const data = await response.json()
+    if (response.ok) {
+        return data
+    } else {
+        return data
+    }
+}
+
+export const getProject = async (token?: string, organizationId?: string, projectId?: string) => {
+    const response = await fetch(process.env.NEXT_PUBLIC_API_URL + `/organization/${organizationId}/project/${projectId}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json'
         },
         cache: 'no-cache',
     })
@@ -58,5 +72,84 @@ export const getProjects = async (token?: string, organizationId?: string) => {
         return data
     } else {
         return data
+    }
+}
+
+//send the binary file to the server
+export const setNewProjectPicture = async (token?: string, organizationId?: string, projectId?: string, file?: any) => {
+    if (!file) {
+        console.log("file is null")
+    }
+    console.log(file)
+    const response = await fetch(process.env.NEXT_PUBLIC_API_URL + `/organization/${organizationId}/project/${projectId}/logo`, {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+        },
+        body: file
+    })
+    const data = await response.json()
+    console.log(data)
+    if (response.ok) {
+        toast.success("Project picture updated")
+    } else {
+        toast.error("Error updating project picture")
+    }
+}
+
+export const patchProject = async (token?: string, organizationId?: string, projectId?: string, body?: any) => {
+    const response = await fetch(process.env.NEXT_PUBLIC_API_URL + `/organization/${organizationId}/project/${projectId}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json'
+        },
+        body:  JSON.stringify(body)
+    })
+    const data = await response.json()
+    console.log(data)
+    if (response.ok) {
+        toast.success("Project updated")
+    } else {
+        toast.error("Error updating project")
+    }
+}
+
+export const getOrganization = async (token?: string, organizationId?: string) => {
+    const response = await fetch(process.env.NEXT_PUBLIC_API_URL + `/organization/${organizationId}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json'
+        },
+        cache: 'no-cache',
+    })
+    const data = await response.json()
+    console.log(data)
+    if (response.ok) {
+        return data
+    } else {
+        return data
+    }
+}
+
+export const patchOrganization = async (token?: string, organizationId?: string, body?: any) => {
+    const response = await fetch(process.env.NEXT_PUBLIC_API_URL + `/organization/${organizationId}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json'
+        },
+        body:  JSON.stringify(body)
+    })
+    const data = await response.json()
+    console.log(data)
+    if (response.ok) {
+        toast.success("Organization updated")
+    } else {
+        toast.error("Error updating organization")
     }
 }
