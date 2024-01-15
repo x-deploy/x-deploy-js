@@ -9,9 +9,9 @@ export function Card({ children, className , noShadow, ...props} : { children: R
     )
 }
 
-export function CardContent({ children, className } : { children: React.ReactNode, className?: string }) {
+export function CardContent({ children, className, onClick } : { children: React.ReactNode, className?: string, onClick?: any }) {
     return (
-        <div className="flex flex-col space-y-1.5 p-6">
+        <div onClick={onClick} className="flex flex-col space-y-1.5 p-6">
             {children}
         </div>
     )
