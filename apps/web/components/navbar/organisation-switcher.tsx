@@ -8,6 +8,9 @@ import {Card, CardContent, CardTitle} from "../basics/card";
 import {MiniRoundedPlusIcon} from "../svg/rounded-plus-icon";
 import {Suspense} from "react";
 import {Dialog, DialogContent, DialogTrigger} from "../basics/dialog/dialog";
+import {Text} from "lucide-react";
+import {TextInput} from "../basics/text-input";
+import Link from "next/link";
 
 export const OrganisationSwitcher = async ({project}: {
     project?: boolean
@@ -60,25 +63,17 @@ export const OrganisationSwitcher = async ({project}: {
                                             </div>
                                         )
                                     }) : <></>}
-                                    <Dialog>
-                                        <DialogTrigger>
-                                            <div
-                                                className={"flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-900 transition-all duration-75 w-full cursor-pointer rounded-bl-xl"}>
-                                                <MiniRoundedPlusIcon/>
-                                                <div className={"ml-2 truncate"}>
-                                                    New
-                                                </div>
-                                            </div>
-                                        </DialogTrigger>
-                                        <DialogContent>
-                                            <CardContent>
-                                                    <CardTitle>New Organization</CardTitle>
-                                                <div className={"w-96"}>
+                                    <Link href={"/organization/new"}>
+                                        <div
+                                            className={"flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-900 transition-all duration-75 w-full cursor-pointer rounded-bl-xl"}>
+                                            <MiniRoundedPlusIcon/>
 
-                                                </div>
-                                            </CardContent>
-                                        </DialogContent>
-                                    </Dialog>
+                                            <div className={"ml-2 truncate"}>
+                                                New
+                                            </div>
+                                        </div>
+                                    </Link>
+
                                 </div>
                             </div>
                             <div style={
@@ -113,7 +108,7 @@ export const OrganisationSwitcher = async ({project}: {
                 </PopoverContent>
             </Popover>
         </div>
-    )
+)
 }
 
 export const OrganisationSwitcherSkeleton = () => {

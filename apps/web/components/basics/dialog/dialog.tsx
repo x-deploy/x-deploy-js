@@ -54,7 +54,7 @@ export const DialogContent = ({isOpen, closeDialog, children} : { isOpen: boolea
                 top: "-50px",
             }
         }  id="dialog-backdrop" className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000] w-screen h-screen">
-            <Card onClick={stopPropagation} >
+            <Card className={"dark:bg-black bg-white"} onClick={stopPropagation} >
                 {/*<button*/}
                 {/*    className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"*/}
                 {/*    onClick={closeDialog}*/}
