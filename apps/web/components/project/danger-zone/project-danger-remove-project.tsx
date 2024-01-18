@@ -6,6 +6,8 @@ import {Dialog, DialogContent, DialogTrigger} from "../../basics/dialog/dialog";
 import {Text} from "lucide-react";
 import {TextInput} from "../../basics/text-input";
 import React from "react";
+import {deleteProject} from "../../../lib/fetch";
+import { useRouter } from 'next/navigation'
 
 export function ProjectDangerRemoveProject({project, token, organizationId, projectId}: {
     project: any;
@@ -14,9 +16,17 @@ export function ProjectDangerRemoveProject({project, token, organizationId, proj
     projectId: string;
 }) {
 
+    const router = useRouter()
     const projectName = project.name.replace(/\s+/g, '-').toLowerCase()
     const [projectNameInput, setProjectNameInput] = React.useState("")
 
+    const deleteProjectFunc = async () => {
+        const data = await deleteProject(token, organizationId, projectId)
+        if (data.success) {
+            await router.push("/organization/" + organizationId)
+        }
+
+    }
 
     return (
         <Card>
@@ -42,7 +52,7 @@ export function ProjectDangerRemoveProject({project, token, organizationId, proj
                                     </div>
                                     <div className={"flex justify-end"}>
                                         <div className={"w-20 mt-2"}>
-                                            <Button disabled={
+                                            <Button  click={deleteProjectFunc} disabled={
                                                 projectName !== projectNameInput
                                             } variant={"primary"}>Delete</Button>
                                         </div>

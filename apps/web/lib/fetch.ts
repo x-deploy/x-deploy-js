@@ -67,7 +67,6 @@ export const getProject = async (token?: string, organizationId?: string, projec
         cache: 'no-cache',
     })
     const data = await response.json()
-    console.log(data)
     if (response.ok) {
         return data
     } else {
@@ -89,7 +88,6 @@ export const setNewProjectPicture = async (token?: string, organizationId?: stri
         body: file
     })
     const data = await response.json()
-    console.log(data)
     if (response.ok) {
         toast.success("Project picture updated")
     } else {
@@ -108,7 +106,6 @@ export const patchProject = async (token?: string, organizationId?: string, proj
         body:  JSON.stringify(body)
     })
     const data = await response.json()
-    console.log(data)
     if (response.ok) {
         toast.success("Project updated")
     } else {
@@ -127,7 +124,6 @@ export const getOrganization = async (token?: string, organizationId?: string) =
         cache: 'no-cache',
     })
     const data = await response.json()
-    console.log(data)
     if (response.ok) {
         return data
     } else {
@@ -146,10 +142,28 @@ export const patchOrganization = async (token?: string, organizationId?: string,
         body:  JSON.stringify(body)
     })
     const data = await response.json()
-    console.log(data)
     if (response.ok) {
         toast.success("Organization updated")
     } else {
         toast.error("Error updating organization")
+    }
+}
+
+export const deleteProject = async (token?: string, organizationId?: string, projectId?: string) => {
+    const response = await fetch(process.env.NEXT_PUBLIC_API_URL + `/organization/${organizationId}/project/${projectId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json'
+        },
+    })
+    const data = await response.json()
+    if (response.ok) {
+        toast.success("Project deleted")
+        return {success: true}
+    } else {
+        toast.error("Error deleting project")
+        return data
     }
 }
