@@ -20,7 +20,7 @@ export default function Layout({children, params}: { children: React.ReactNode, 
                         href: "/project/" + params.id + "/settings",
                     },
                 ]
-            }/>
+            } project={params.id}/>
             <div className={""}>
                 {children}
             </div>

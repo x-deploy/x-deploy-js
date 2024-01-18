@@ -1,18 +1,21 @@
 import React from "react";
 import Link from "next/link";
 
-export function VerticalMenuButton({children, className, click, href, selected}: {
+export function VerticalMenuButton({children, className, click, href, selected, danger}: {
     children: React.ReactNode;
     className?: string;
     click?: () => void;
     href?: string;
     selected?: boolean;
+    danger?: boolean;
 } & React.ComponentProps<"button">): JSX.Element {
     const button = (<button
         className={"rounded-lg px-4 py-3 text-sm font-light w-full " +
             "text-gray-400 dark:hover:bg-gray-900 text-start hover:bg-gray-100 transition dark:bg-dark-2 dark:border-gray-800 hover:text-black dark:hover:text-white " +
             (className ? " " + className : "") +
-            (selected ? " bg-gray-100 dark:bg-gray-900  dark:text-white text-black" : "")}
+            (selected ? " bg-gray-100 dark:bg-gray-900  dark:text-white text-black" : "") +
+            (danger && !selected ? " text-red-500" : "") +
+            (danger && selected ? " bg-red-100 dark:bg-red-900" : "")}
         onClick={click}>
         {children}
     </button>);

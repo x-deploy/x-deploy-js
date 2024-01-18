@@ -9,7 +9,7 @@ import {Suspense} from "react";
 
 export const Navbar = async ({navTab, project}: {
     navTab: Array<{ name: string, href: string }>
-    project: boolean
+    project: string
 }) => {
 
     const infos = await getProfileInfo(cookies().get("token")?.value)
@@ -22,7 +22,7 @@ export const Navbar = async ({navTab, project}: {
                         <h1>X-Deploy</h1>
                     </div>
                     <Suspense fallback={<OrganisationSwitcherSkeleton/>}>
-                        <OrganisationSwitcher/>
+                        <OrganisationSwitcher project={project}/>
                     </Suspense>
                 </div>
                 <div className={"items-center hidden md:flex"}>

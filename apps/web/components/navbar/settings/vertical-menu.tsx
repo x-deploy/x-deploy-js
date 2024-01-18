@@ -7,7 +7,7 @@ import {usePathname} from "next/navigation";
 
 
 export const VerticalMenu = ({itemList}: {
-    itemList: Array<{ name: string, href: string, selected?: boolean }>;
+    itemList: Array<{ name: string, href: string, selected?: boolean, danger?: boolean }>;
 }) => {
 
     const pathname = usePathname();
@@ -17,7 +17,7 @@ export const VerticalMenu = ({itemList}: {
                 {itemList.map((item, index) => (
                     <div className={"mx-4 my-1"}>
                         <VerticalMenuButton key={index} href={item.href}
-                                            selected={pathname === item.href}>{item.name}</VerticalMenuButton>
+                                            selected={pathname === item.href} danger={item.danger}>{item.name}</VerticalMenuButton>
                     </div>
                 ))}
             </div>

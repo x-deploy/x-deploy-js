@@ -1,7 +1,8 @@
 "use client";
 
-import React, {useCallback, useEffect, useState} from "react";
+import React, {useCallback, useContext, useEffect, useState} from "react";
 import {Card} from "../card";
+import {createContext} from "node:vm";
 
 export function Dialog({children}: { children: React.ReactNode }) {
 
@@ -29,6 +30,7 @@ export function DialogTrigger({openDialog, children}
 
 export const DialogContent = ({isOpen, closeDialog, children} : { isOpen: boolean, closeDialog: any, children: React.ReactNode }) => {
 
+
     if (!isOpen) return null;
     const stopPropagation = (e: { stopPropagation: () => void; }) => {
         e.stopPropagation();
@@ -47,6 +49,13 @@ export const DialogContent = ({isOpen, closeDialog, children} : { isOpen: boolea
     }, [handleBackdropClick]);
 
 
+    const childrenWithClose = React.Children.map(children, child => {
+        if (React.isValidElement(child)) {
+            return React.cloneElement(child, { closeDialog });
+        }
+        return child;
+    });
+
 
     return (
         <div style={
@@ -61,7 +70,7 @@ export const DialogContent = ({isOpen, closeDialog, children} : { isOpen: boolea
                 {/*>*/}
                 {/*    Close*/}
                 {/*</button>*/}
-                {children}
+                {childrenWithClose}
             </Card>
         </div>
     );

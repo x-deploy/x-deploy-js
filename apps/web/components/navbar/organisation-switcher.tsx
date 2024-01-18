@@ -8,12 +8,13 @@ import {Card, CardContent, CardTitle} from "../basics/card";
 import {MiniRoundedPlusIcon} from "../svg/rounded-plus-icon";
 import {Suspense} from "react";
 import {Dialog, DialogContent, DialogTrigger} from "../basics/dialog/dialog";
-import {Text} from "lucide-react";
 import {TextInput} from "../basics/text-input";
 import Link from "next/link";
+import {ProjectDialogForm} from "./project-dialog-form";
+import {DialogContentOrganization} from "./dialog-content";
 
 export const OrganisationSwitcher = async ({project}: {
-    project?: boolean
+    project?: string
 }) => {
 
     const token = cookies().get("token")?.value
@@ -21,6 +22,8 @@ export const OrganisationSwitcher = async ({project}: {
     const img = organizations[0] ? organizations[0].logoUrl ? organizations[0].logoUrl : bober : bober
     const name = organizations[0] ? organizations[0].name : "error"
     const projets = await getProjects(token, organizations[0].id)
+    //find project with projetId
+    const projectSelected = projets.find((proj: any) => proj.id === project)
     return (
         <div>
             <Popover>
@@ -29,8 +32,7 @@ export const OrganisationSwitcher = async ({project}: {
                                                                                  className={"mr-2"}/>{name}
                         {project ?
                             <><span
-                                className={"text-gray-500"}>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;</span>project
-                                name</>
+                                className={"text-gray-500"}>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;</span>{projectSelected.name}</>
                             :
                             <></>
                         }
@@ -94,13 +96,22 @@ export const OrganisationSwitcher = async ({project}: {
                                             </div>
                                         )
                                     }) : <></>}
-                                    <div
-                                        className={"flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-900 transition-all duration-75 w-full cursor-pointer"}>
-                                        <MiniRoundedPlusIcon/>
-                                        <div className={"ml-2 truncate"}>
-                                            New
-                                        </div>
-                                    </div>
+                                    <Dialog>
+
+                                        <DialogTrigger>
+                                            <div
+                                                className={"flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-900 transition-all duration-75 w-full cursor-pointer"}>
+                                                <MiniRoundedPlusIcon/>
+                                                <div className={"ml-2 truncate"}>
+                                                    New
+                                                </div>
+                                            </div>
+
+                                        </DialogTrigger>
+                                        <DialogContent>
+                                            <DialogContentOrganization  organization={organizations[0]}/>
+                                        </DialogContent>
+                                    </Dialog>
                                 </div>
                             </div>
                         </div>
@@ -108,7 +119,7 @@ export const OrganisationSwitcher = async ({project}: {
                 </PopoverContent>
             </Popover>
         </div>
-)
+    )
 }
 
 export const OrganisationSwitcherSkeleton = () => {

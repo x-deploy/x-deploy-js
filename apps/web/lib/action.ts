@@ -1,7 +1,6 @@
 "use server"
 import {redirect} from "next/navigation";
-import { cookies } from 'next/headers'
-import {toast} from "sonner";
+import {cookies} from 'next/headers'
 
 export const login = async (formData: FormData) => {
     const email = formData.get('email')
@@ -58,4 +57,22 @@ export const signup = async (formData: FormData) => {
             }
         }
     }
+}
+
+export const newProject = async (organizationId: string, formData: FormData) => {
+    const name = formData.get('name');
+    const description: string = "";
+    const response = await fetch(process.env.NEXT_PUBLIC_API_URL + `/organization/${organizationId}/project`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + cookies().get('token')?.value,
+        },
+        body: JSON.stringify({name, description}),
+    })
+    const data =  await response.json();
+    if (response.ok) {
+        return {success: true}
+    }
+    return data
 }
