@@ -15,8 +15,10 @@ export function OrganizationPicture({src , token, organizationId}: {
             <CardContent>
                 <div className={"flex justify-between"}>
                     <div className={"flex-col"}>
-                        <CardTitle className={"mb-4"}>Project's Picture</CardTitle>
-                        <OrganizationImageChangeButton token={token} organizationId={organizationId}/>
+                        <CardTitle className={"mb-4"}>Organization's Picture</CardTitle>
+                        <div className={"w-32"}>
+                            <OrganizationImageChangeButton  token={token} organizationId={organizationId}/>
+                        </div>
                     </div>
                     <BigAvatar src={src}/>
                 </div>
