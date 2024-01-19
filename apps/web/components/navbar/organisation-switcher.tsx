@@ -12,18 +12,22 @@ import {TextInput} from "../basics/text-input";
 import Link from "next/link";
 import {ProjectDialogForm} from "./project-dialog-form";
 import {DialogContentOrganization} from "./dialog-content";
+import {getOrgaIdFromCookies, setNewProjectCookie} from "../../lib/ cookie";
 
-export const OrganisationSwitcher = async ({project}: {
+export const OrganisationSwitcher = async ({organizationId ,project}: {
+    organizationId?: string,
     project?: string
 }) => {
 
     const token = cookies().get("token")?.value
     const organizations = await getOrganizations(token)
-    const img = organizations[0] ? organizations[0].logoUrl ? organizations[0].logoUrl : bober : bober
-    const name = organizations[0] ? organizations[0].name : "error"
-    const projets = await getProjects(token, organizations[0].id)
-    //find project with projetId
+    const orgaId = organizationId ? organizationId : getOrgaIdFromCookies() ? getOrgaIdFromCookies() : organizations[0].id
+    const projets = await getProjects(token, orgaId)
     const projectSelected = projets.find((proj: any) => proj.id === project)
+    const orga = organizations.find((org: any) => org.id === orgaId)
+    const img = orga ? orga.logoUrl ? orga.logoUrl : bober : bober
+    const name = orga ? orga.name : "No organization"
+
     return (
         <div>
             <Popover>

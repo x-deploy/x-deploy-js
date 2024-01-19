@@ -1,7 +1,8 @@
-import {Navbar} from "../../../components/navbar/navbar";
+import {Navbar} from "../../../../../components/navbar/navbar";
 
 export default function Layout({children, params}: { children: React.ReactNode, params: {
     id: string,
+    projectId: string,
     }}) {
     return (
         <div>
@@ -9,18 +10,18 @@ export default function Layout({children, params}: { children: React.ReactNode, 
                 [
                     {
                         name: "Clusters",
-                        href: "/project/" + params.id,
+                        href: "/organization/" + params.id + "/project/" + params.projectId
                     },
                     {
                         name: "Environments",
-                        href: "/project/" + params.id + "/environments",
+                        href: "/organization/" + params.id + "/project/" + params.projectId + "/environments",
                     },
                     {
                         name: "Settings",
-                        href: "/project/" + params.id + "/settings",
+                        href: "/organization/" + params.id + "/project/" + params.projectId + "/settings",
                     },
                 ]
-            } project={params.id}/>
+            } project={params.projectId}/>
             <div className={""}>
                 {children}
             </div>

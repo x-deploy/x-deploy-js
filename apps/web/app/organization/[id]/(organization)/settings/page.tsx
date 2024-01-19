@@ -1,12 +1,12 @@
-import {VerticalMenu} from "../../../components/navbar/settings/vertical-menu";
+import {VerticalMenu} from "../../../../../components/navbar/settings/vertical-menu";
 import {cookies} from "next/headers";
-import {getOrganization, getOrganizations} from "../../../lib/fetch";
+import {getOrganization, getOrganizations} from "../../../../../lib/fetch";
 import bober from "/images/bober.jpeg"
-import {OrganizationPicture} from "../../../components/organization/orga-picture";
-import {OrganizationDisplayNameChanger} from "../../../components/organization/organization-display-name-changer";
+import {OrganizationPicture} from "../../../../../components/organization/orga-picture";
+import {OrganizationDisplayNameChanger} from "../../../../../components/organization/organization-display-name-changer";
 import {
     OrganizationDisplayDescriptionChanger
-} from "../../../components/organization/organization-display-description-changer";
+} from "../../../../../components/organization/organization-display-description-changer";
 
 export default async function Page(): Promise<JSX.Element> {
 

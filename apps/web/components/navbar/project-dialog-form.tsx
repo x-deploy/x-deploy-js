@@ -19,7 +19,8 @@ export const ProjectDialogForm = ({closeDialog, organizationId} : { closeDialog:
                 if (data.success) {
                     toast.success("Project created")
                     //normal if not find the function is injected after
-                    closeDialog();
+                    //TODO closeDialog()
+                    //closeDialog();
                     return
                 }
                 toast.error(data.error)

@@ -1,9 +1,9 @@
-import {ProjectPicture} from "../../../../components/project/project-picture";
-import {getProject} from "../../../../lib/fetch";
+import {ProjectPicture} from "../../../../../../components/project/project-picture";
+import {getProject} from "../../../../../../lib/fetch";
 import {cookies} from "next/headers";
 import bober from "/images/bober.jpeg"
-import {ProjectDisplayNameChanger} from "../../../../components/project/project-display-name-changer";
-import {ProjectDisplayDescriptionChanger} from "../../../../components/project/project-display-description-changer";
+import {ProjectDisplayNameChanger} from "../../../../../../components/project/project-display-name-changer";
+import {ProjectDisplayDescriptionChanger} from "../../../../../../components/project/project-display-description-changer";
 
 export default async function Page({params}: { params: { id: string } }) {
 

@@ -1,4 +1,4 @@
-import {Card} from "../../../components/basics/card";
+import {Card} from "../../../../../components/basics/card";
 
 export default function Page() {
     return (

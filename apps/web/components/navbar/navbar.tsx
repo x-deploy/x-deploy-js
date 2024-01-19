@@ -7,8 +7,9 @@ import {OrganisationSwitcher, OrganisationSwitcherSkeleton} from "./organisation
 import {AvatarMenu} from "./avatar-menu";
 import {Suspense} from "react";
 
-export const Navbar = async ({navTab, project}: {
+export const Navbar = async ({navTab, organizationId, project}: {
     navTab: Array<{ name: string, href: string }>
+    organizationId?: string
     project: string
 }) => {
 
@@ -22,7 +23,7 @@ export const Navbar = async ({navTab, project}: {
                         <h1>X-Deploy</h1>
                     </div>
                     <Suspense fallback={<OrganisationSwitcherSkeleton/>}>
-                        <OrganisationSwitcher project={project}/>
+                        <OrganisationSwitcher organizationId={organizationId} project={project}/>
                     </Suspense>
                 </div>
                 <div className={"items-center hidden md:flex"}>
