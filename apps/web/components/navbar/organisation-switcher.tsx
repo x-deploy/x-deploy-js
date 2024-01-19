@@ -14,7 +14,7 @@ import {ProjectDialogForm} from "./project-dialog-form";
 import {DialogContentOrganization} from "./dialog-content";
 import {getOrgaIdFromCookies, setNewProjectCookie} from "../../lib/ cookie";
 
-export const OrganisationSwitcher = async ({organizationId ,project}: {
+export const OrganisationSwitcher = async ({organizationId, project}: {
     organizationId?: string,
     project?: string
 }) => {
@@ -56,17 +56,19 @@ export const OrganisationSwitcher = async ({organizationId ,project}: {
                                 <div>
                                     {organizations[0] ? organizations.map((org: any) => {
                                         return (
-                                            <div style={
-                                                {
-                                                    scrollbarWidth: "none",
+                                            <Link href={"/organization/" + org.id}>
+                                                <div style={
+                                                    {
+                                                        scrollbarWidth: "none",
+                                                    }
                                                 }
-                                            }
-                                                 className={"flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-900 transition-all duration-75 w-full cursor-pointer"}>
-                                                <MiniAvatar src={org.logoUrl ? org.logoUrl : bober}/>
-                                                <div className={"ml-2 truncate"}>
-                                                    {org.name}
+                                                     className={"flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-900 transition-all duration-75 w-full cursor-pointer"}>
+                                                    <MiniAvatar src={org.logoUrl ? org.logoUrl : bober}/>
+                                                    <div className={"ml-2 truncate"}>
+                                                        {org.name}
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            </Link>
                                         )
                                     }) : <></>}
                                     <Link href={"/organization/new"}>
@@ -113,7 +115,7 @@ export const OrganisationSwitcher = async ({organizationId ,project}: {
 
                                         </DialogTrigger>
                                         <DialogContent>
-                                            <DialogContentOrganization  organization={organizations[0]}/>
+                                            <DialogContentOrganization organization={organizations[0]}/>
                                         </DialogContent>
                                     </Dialog>
                                 </div>
