@@ -167,3 +167,23 @@ export const deleteProject = async (token?: string, organizationId?: string, pro
         return data
     }
 }
+
+export const deleteOrganization = async (token?: string, organizationId?: string, password? : string  ) => {
+    const response = await fetch(process.env.NEXT_PUBLIC_API_URL + `/organization/${organizationId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({password})
+    })
+    const data = await response.json()
+    if (response.ok) {
+        toast.success("Organization deleted")
+        return {success: true}
+    } else {
+        toast.error(data.error)
+        return data
+    }
+}

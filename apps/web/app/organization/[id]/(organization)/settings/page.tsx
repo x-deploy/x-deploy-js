@@ -8,11 +8,15 @@ import {
     OrganizationDisplayDescriptionChanger
 } from "../../../../../components/organization/organization-display-description-changer";
 
-export default async function Page(): Promise<JSX.Element> {
+export default async function Page({params} : {
+    params: {
+        id: string,
+    }
+}): Promise<JSX.Element> {
 
     const token = cookies().get("token")?.value
     //TODO to dynamic organizatio
-    const organizationId = "65a3272d6528a5a16c6c8acb"
+    const organizationId = params.id
 
     const organization = await getOrganization(token, organizationId)
 
