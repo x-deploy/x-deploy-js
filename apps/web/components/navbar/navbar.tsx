@@ -30,7 +30,7 @@ export const Navbar = async ({navTab, organizationId, project}: {
                     <div className={"flex pr-8"}>
                         <Navbutton href={"/help"}>Help</Navbutton>
                         <Navbutton href={"/help"}>Documentation</Navbutton>
-                        <Navbutton href={"/organization"}>Organization</Navbutton>
+                        <Navbutton href={"/organization/" + organizationId}>Organization</Navbutton>
                     </div>
                     <AvatarMenu img={img} topText={infos.email}/>
                 </div>

@@ -21,7 +21,7 @@ export default function Layout({children, params}: { children: React.ReactNode, 
                         href: "/organization/" + params.id + "/project/" + params.projectId + "/settings",
                     },
                 ]
-            } project={params.projectId}/>
+            } project={params.projectId} organizationId={params.id}/>
             <div className={""}>
                 {children}
             </div>

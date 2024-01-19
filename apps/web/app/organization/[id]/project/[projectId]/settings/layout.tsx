@@ -11,7 +11,7 @@ export default function Layout({children, params}: {
                     <div className={"flex flex-row min-h-full h-full w-96"}>
                         <VerticalMenu itemList={[
                             {name: "General", href: "/organization/" + params.id + "/project/" + params.projectId + "/settings"},
-                            {name: "Danger Zone", href: "/organization/" + params.id + "/project/" + params.projectId + "/settings/danger-zone"},
+                            {name: "Danger Zone", href: "/organization/" + params.id + "/project/" + params.projectId + "/settings/danger-zone", danger: true},
                         ]}/>
                     </div>
                     <div className={"w-full"}>
