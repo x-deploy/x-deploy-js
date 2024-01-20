@@ -12,8 +12,8 @@ export default function Layout({children, params}: { children: React.ReactNode
                     <div className={"flex flex-row min-h-full h-full w-96"}>
                         <VerticalMenu itemList={[
                             {name: "General", href: "/organization/" + params.id + "/settings"},
-                            {name: "Containers Registries", href: "/organization" + params.id + "/settings/containers-registries"},
-                            {name: "Helms Repositories", href: "/organization" + params.id + "/settings/helms-repositories"},
+                            {name: "Containers Registries", href: "/organization/" + params.id + "/settings/containers-registries"},
+                            {name: "Helms Repositories", href: "/organization/" + params.id + "/settings/helms-repositories"},
                             {name: "Danger Zone", href: "/organization/" + params.id + "/settings/danger-zone", danger: true},
                         ]}/>
                     </div>
