@@ -93,13 +93,15 @@ export const OrganisationSwitcher = async ({organizationId, project}: {
                                 <div>
                                     {projets[0] ? projets.map((org: any) => {
                                         return (
-                                            <div
-                                                className={"flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-900 transition-all duration-75 w-full cursor-pointer"}>
-                                                <MiniAvatar src={org.logoUrl ? org.logoUrl : bober}/>
-                                                <div className={"ml-2 truncate"}>
-                                                    {org.name}
+                                            <Link href={org.id ? "/organization/" + orgaId + "/project/" + org.id : ""}>
+                                                <div
+                                                    className={"flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-900 transition-all duration-75 w-full cursor-pointer"}>
+                                                    <MiniAvatar src={org.logoUrl ? org.logoUrl : bober}/>
+                                                    <div className={"ml-2 truncate"}>
+                                                        {org.name}
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            </Link>
                                         )
                                     }) : <></>}
                                     <Dialog>
