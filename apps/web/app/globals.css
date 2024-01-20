@@ -41,3 +41,33 @@ html, body {
   }
 }
 
+
+@keyframes slideLeftFadeOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+}
+
+@keyframes slideLeftFadeIn {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.card-exiting {
+  animation: slideLeftFadeOut 1s forwards;
+}
+
+.card-entering {
+  animation: slideLeftFadeIn 1s forwards;
+}

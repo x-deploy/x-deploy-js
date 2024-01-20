@@ -1,6 +1,7 @@
 "use server"
 import {redirect} from "next/navigation";
 import {cookies} from 'next/headers'
+import {getOrganizations} from "./fetch";
 
 export const login = async (formData: FormData) => {
     const email = formData.get('email')
@@ -75,4 +76,32 @@ export const newProject = async (organizationId: string, formData: FormData) => 
         return {success: true}
     }
     return data
+}
+
+export const newOrganization = async (formData: FormData) => {
+    const name = formData.get('name');
+    const description = formData.get('description');
+    const website = formData.get('website');
+    const contact_email = formData.get('contact_email');
+    const response = await fetch(process.env.NEXT_PUBLIC_API_URL + `/organization`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + cookies().get('token')?.value,
+        },
+        body: JSON.stringify({name, description, website, contact_email}),
+    })
+    const data = await response.json();
+    if (response.ok) {
+        // @ts-ignore
+        //TODO rework this
+        const organizations = await getOrganizations(cookies().get('token')?.value)
+        const organizationId = organizations.find((organization: any) => organization.name === name).id
+        return {success: true, id: organizationId}
+    }
+    // @ts-ignore
+    const organizations = await getOrganizations(cookies().get('token')?.value)
+    const organizationId = organizations.find((organization: any) => organization.name === name).id
+    console.log(organizationId)
+    return {...data, id: organizationId}
 }

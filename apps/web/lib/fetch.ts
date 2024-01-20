@@ -187,3 +187,22 @@ export const deleteOrganization = async (token?: string, organizationId?: string
         return data
     }
 }
+
+export const setNewOrganizationPicture = async (token?: string, organizationId?: string, file?: any) => {
+    if (!file) {
+        console.log("file is null")
+    }
+    const response = await fetch(process.env.NEXT_PUBLIC_API_URL + `/organization/${organizationId}/logo`, {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+        },
+        body: file
+    })
+    const data = await response.json()
+    if (response.ok) {
+        toast.success("Project picture updated")
+    } else {
+        toast.error("Error updating project picture")
+    }
+}
