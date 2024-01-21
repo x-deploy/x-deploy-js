@@ -27,7 +27,8 @@ html, body {
     color: #1a202c;
   }
     * {
-      --icon-color: #1a202c
+      --icon-color: #1a202c;
+      --icon-color-primary: #fff
     }
 }
 
@@ -37,7 +38,8 @@ html, body {
     color: #fff;
   }
   * {
-    --icon-color: #fff
+    --icon-color: #fff;
+    --icon-color-primary: #1a202c
   }
 }
 

@@ -3,7 +3,7 @@ import {Card} from "../card";
 export function Table({headersTab, lineTab, EmptyComponent} : {
     headersTab: Array<string>
     lineTab: Array<Array<string>>
-    EmptyComponent?: React.ReactNode
+    EmptyComponent?: any
 }) {
     return (
         <Card>
@@ -19,11 +19,11 @@ export function Table({headersTab, lineTab, EmptyComponent} : {
                     </tr>
                     </thead>
                     <tbody>
-                    {lineTab ? lineTab.map((line) => {
+                    {lineTab && lineTab.length > 1 ? lineTab.map((line) => {
                         return (
                             <TableRow lineTab={line} bottomLine={lineTab.indexOf(line) !== lineTab.length - 1}/>
                         )
-                    }) : EmptyComponent ? EmptyComponent : <></>}
+                    }) : EmptyComponent ? <div>{EmptyComponent}</div> : <></>}
                     </tbody>
                 </table>
             </div>
@@ -49,6 +49,6 @@ function TableRow({lineTab, bottomLine} : {
 
 function TableHeader({name}: {name: string}) {
     return (
-        <th className={"text-left p-4"}>{name}</th>
+        <th className={"text-left p-4 font-light"}>{name}</th>
     )
 }
