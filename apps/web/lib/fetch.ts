@@ -242,3 +242,21 @@ export const getOrganizationInvitations = async (token?: string, organizationId?
         return data
     }
 }
+
+export const getOrganizationApiKeys = async (token?: string, organizationId?: string) => {
+    const response = await fetch(process.env.NEXT_PUBLIC_API_URL + `/organization/${organizationId}/api-key`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json'
+        },
+        cache: 'no-cache',
+    })
+    const data = await response.json()
+    if (response.ok) {
+        return data
+    } else {
+        return data
+    }
+}

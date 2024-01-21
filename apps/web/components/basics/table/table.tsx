@@ -19,7 +19,7 @@ export function Table({headersTab, lineTab, EmptyComponent} : {
                     </tr>
                     </thead>
                     <tbody>
-                    {lineTab && lineTab.length > 1 ? lineTab.map((line) => {
+                    {lineTab && lineTab.length >= 1 ? lineTab.map((line) => {
                         return (
                             <TableRow lineTab={line} bottomLine={lineTab.indexOf(line) !== lineTab.length - 1}/>
                         )

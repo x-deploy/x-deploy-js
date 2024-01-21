@@ -14,6 +14,7 @@ export default function Layout({children, params}: { children: React.ReactNode
                             {name: "General", href: "/organization/" + params.id + "/settings"},
                             {name: "Containers Registries", href: "/organization/" + params.id + "/settings/containers-registries"},
                             {name: "Helms Repositories", href: "/organization/" + params.id + "/settings/helms-repositories"},
+                            {name: "API Key", href: "/organization/" + params.id + "/settings/api-key"},
                             {name: "Danger Zone", href: "/organization/" + params.id + "/settings/danger-zone", danger: true},
                         ]}/>
                     </div>
