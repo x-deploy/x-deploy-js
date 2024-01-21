@@ -21,15 +21,15 @@ export const AvatarMenu = ({img, topText}: {
                     }
                 }>
                     <Card className={"dark:bg-black bg-white text-sm"}>
-                            <div className={"m-4 text-gray-500 font-light"}>
-                                {topText}
-                            </div>
-                            <div>
-                                <AvatarMenuButton href={"/settings"}>Settings</AvatarMenuButton>
-                            </div>
-                            <div className={"m-4"}>
-                                <Button variant={"secondary"}><span className={"text-red-500"}>Log Out</span></Button>
-                            </div>
+                        <div className={"m-4 text-gray-500 font-light"}>
+                            {topText}
+                        </div>
+                        <div>
+                            <AvatarMenuButton href={"/settings"}>Settings</AvatarMenuButton>
+                        </div>
+                        <div className={"m-4"}>
+                            <Button variant={"secondary"}><span className={"text-red-500"}>Log Out</span></Button>
+                        </div>
                     </Card>
                 </PopoverContent>
             </Popover>
@@ -43,9 +43,10 @@ export const AvatarMenuButton = ({href, children}: {
 }) => {
     return (
         <Link href={href} passHref>
-            <div className={"text-gray-500 dark:hover:text-white hover:text-black p-2 pl-4 font-light dark:hover:bg-gray-900 hover:bg-gray-200 transition-all duration-75"}>
-            {children}
-             </div>
+            <div
+                className={"text-gray-500 dark:hover:text-white hover:text-black p-2 pl-4 font-light dark:hover:bg-gray-900 hover:bg-gray-200 transition-all duration-75"}>
+                {children}
+            </div>
         </Link>
     )
 }
