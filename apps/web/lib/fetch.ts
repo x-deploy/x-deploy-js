@@ -206,3 +206,21 @@ export const setNewOrganizationPicture = async (token?: string, organizationId?:
         toast.error("Error updating project picture")
     }
 }
+
+export const getOrganizationMembers = async (token?: string, organizationId?: string) => {
+    const response = await fetch(process.env.NEXT_PUBLIC_API_URL + `/organization/${organizationId}/member`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json'
+        },
+        cache: 'no-cache',
+    })
+    const data = await response.json()
+    if (response.ok) {
+        return data
+    } else {
+        return data
+    }
+}

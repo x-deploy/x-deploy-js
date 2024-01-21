@@ -7,6 +7,7 @@ import {Button} from "../../basics/buttons";
 import {useState} from "react";
 import {setNewOrganizationPicture} from "../../../lib/fetch";
 import {toast} from "sonner";
+import {useRouter} from "next/navigation";
 
 export function NewOrganizationPicture({token, organizationId}: {
     token: string,
@@ -23,6 +24,8 @@ export function NewOrganizationPicture({token, organizationId}: {
             toast.error("No image selected")
         }
     }
+
+    const router = useRouter()
 
     return (
         <Card>
@@ -58,7 +61,7 @@ export function NewOrganizationPicture({token, organizationId}: {
                     </div>
                     <div className={"mt-6 flex justify-between"}>
                         <div className={"w-32"}>
-                            <Button variant={"secondary"}>Skip</Button>
+                            <Button click={() => router.push("/organization/" + organizationId)} variant={"secondary"}>Skip</Button>
                         </div>
                         <div className={"w-32"}>
                             <Button variant={"primary"} click={uploadImage}>Update</Button>

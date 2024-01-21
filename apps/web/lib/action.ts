@@ -83,6 +83,15 @@ export const newOrganization = async (formData: FormData) => {
     const description = formData.get('description');
     const website = formData.get('website');
     const contact_email = formData.get('contact_email');
+
+    //check if organization already exists and if fields are valid
+    if (name === "") {
+        return {
+            error: "Name cannot be empty"
+        }
+    }
+
+
     const response = await fetch(process.env.NEXT_PUBLIC_API_URL + `/organization`, {
         method: 'POST',
         headers: {
