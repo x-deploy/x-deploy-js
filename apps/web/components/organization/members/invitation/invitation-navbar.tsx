@@ -1,10 +1,9 @@
-import {Button} from "../../basics/buttons";
-import {PrimaryMiniPlusIconBold} from "../../svg/plus-icon";
-import {Dialog, DialogContent, DialogTrigger} from "../../basics/dialog/dialog";
-import {CardContent, CardTitle} from "../../basics/card";
-import {TextInput} from "../../basics/text-input";
+import {CardContent, CardTitle} from "../../../basics/card";
+import {TextInput} from "../../../basics/text-input";
+import {Dialog, DialogContent, DialogTrigger} from "../../../basics/dialog/dialog";
+import {Button} from "../../../basics/buttons";
 
-export function MembersNavbar() {
+export function InvitationNavbar() {
     return (
         <div className={"w-full flex justify-between mb-4"}>
             <div></div>

@@ -1,6 +1,7 @@
 import {getOrganizationInvitations} from "../../../../../../lib/fetch";
 import {cookies} from "next/headers";
 import {Table} from "../../../../../../components/basics/table/table";
+import {InvitationNavbar} from "../../../../../../components/organization/members/invitation/invitation-navbar";
 
 export default async function Page({params}: {
     params: {
@@ -14,7 +15,7 @@ export default async function Page({params}: {
 
     return (
         <>
-
+            <InvitationNavbar/>
             <Table headersTab={["Firstname", "Lastname", "Email"]} lineTab={
                 invitations.map((invitation) => {
                     return [invitation.firstname, invitation.lastname, invitation.email]

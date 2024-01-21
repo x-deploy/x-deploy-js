@@ -13,7 +13,7 @@ export default async function Page({params}: {
 
     return (
         <>
-            <ProjectNavbar/>
+            <ProjectNavbar organizationId={params.id}/>
             <div>
                 {projects.map((project: any) => {
                     return (
