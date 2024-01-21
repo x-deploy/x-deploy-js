@@ -23,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={plus.className}>
+
       {children}
       <Toaster />
       </body>
