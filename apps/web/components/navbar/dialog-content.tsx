@@ -1,7 +1,7 @@
 import {Card, CardContent, CardTitle} from "../basics/card";
 import {ProjectDialogForm} from "./project-dialog-form";
 
-export function DialogContentOrganization({closeDialog, organization}: { closeDialog: any, organization: any }) {
+export function DialogContentOrganization({closeDialog, organization}: { closeDialog?: any, organization: any }) {
     console.log("closeDialog in DialogContentOrganization component:", closeDialog);
 
     return (

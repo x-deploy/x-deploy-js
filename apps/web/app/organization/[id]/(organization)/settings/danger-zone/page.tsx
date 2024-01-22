@@ -15,7 +15,7 @@ export default async function Page({params}: { params: { id: string }}) {
     return (
         <>
             <div>
-                <OrganizationDangerRemoveOrg token={token ? token : ""} organizationId={organization} organization={org}/>
+                <OrganizationDangerRemoveOrg token={token ? token : ""} organizationId={organization}/>
             </div>
         </>
     )

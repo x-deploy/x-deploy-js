@@ -37,12 +37,13 @@ export function NewOrganizationPicture({token, organizationId}: {
                     <div className={"flex justify-center items-center h-80"}>
                         <div onClick={
                             () => {
-                                document.getElementById("image-upload").click()
+                                document.getElementById("image-upload")?.click()
                             }
                         } className={"hover:border-2 rounded-full border-gray-500 cursor-pointer"}>
                             <GigaBigAvatar src={image ? preview : bober}/>
                             <input id={"image-upload"} type={"file"} className={"hidden"} onChange={
                                 (e) => {
+                                    // @ts-ignore
                                     const file = e.target.files[0];
                                     if (file) {
                                         setImage(file)

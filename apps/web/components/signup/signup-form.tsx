@@ -5,7 +5,7 @@ import {sign} from "crypto";
 import {signup} from "../../lib/action";
 import {SignupClientForm} from "./signup-client-form";
 
-export function SignUpForm() {
+export function SignUpForm(): JSX.Element {
     return (
         <>
             <div style={

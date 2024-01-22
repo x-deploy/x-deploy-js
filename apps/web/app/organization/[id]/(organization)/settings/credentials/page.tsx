@@ -12,7 +12,7 @@ import {
     OrganizationCredentialAws
 } from "../../../../../../components/organization/credentials/organization-credential-aws";
 
-export default function Page({params}: { params: { id: string } }): Promise<JSX.Element> {
+export default function Page({params}: { params: { id: string } }) {
 
     const [selectedButtonTab, setSelectedButtonTab] = React.useState(0);
 

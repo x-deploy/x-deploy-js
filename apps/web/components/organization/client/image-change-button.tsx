@@ -24,7 +24,7 @@ export function OrganizationImageChangeButton ({
     return (
         <div>
             <Button click={() => {
-                document.getElementById("image-upload").click()
+                document.getElementById("image-upload")?.click()
             }} variant={"secondary"}>Change
                 <input id={"image-upload"} type={"file"} className={"hidden"} onChange={
                     (e) => uploadImage(e)

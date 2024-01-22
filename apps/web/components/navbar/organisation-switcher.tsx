@@ -28,6 +28,7 @@ export const OrganisationSwitcher = async ({organizationId, project}: {
     const img = orga ? orga.logoUrl ? orga.logoUrl : bober : bober
     const name = orga ? orga.name : "No organization"
 
+    // @ts-ignore
     return (
         <div>
             <Popover>
@@ -105,7 +106,6 @@ export const OrganisationSwitcher = async ({organizationId, project}: {
                                         )
                                     }) : <></>}
                                     <Dialog>
-
                                         <DialogTrigger>
                                             <div
                                                 className={"flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-900 transition-all duration-75 w-full cursor-pointer"}>

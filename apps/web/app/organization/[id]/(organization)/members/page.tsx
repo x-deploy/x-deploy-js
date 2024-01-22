@@ -16,7 +16,7 @@ export default async function Page({params} : {
         <>
             <MembersNavbar/>
             <Table headersTab={["Firstname","Lastname", "Email", "Role"]}
-                   lineTab={members.map((member) => {
+                   lineTab={members.map((member: any) => {
                        return [member.firstname, member.lastname, member.email, member.role]
                    })}
             />

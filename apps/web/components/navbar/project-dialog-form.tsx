@@ -4,9 +4,6 @@ import {TextInput} from "../basics/text-input";
 import {Button} from "../basics/buttons";
 import {toast} from "sonner";
 import {newProject} from "../../lib/action";
-import {cookies} from "next/headers";
-import {useContext} from "react";
-import {DialogContext} from "../basics/dialog/dialog";
 
 
 export const ProjectDialogForm = ({closeDialog, organizationId} : { closeDialog: any, organizationId: string}) => {
