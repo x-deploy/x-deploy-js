@@ -1,6 +1,7 @@
 import {getOrganizationCredentialsAws, getOrganizationCredentialsOvh} from "../../../lib/fetch";
 import Cookies from "js-cookie";
 import React from "react";
+import {Table} from "../../basics/table/table";
 
 export  function OrganizationCredentialAws({organizationId} : {organizationId: string}) {
 
@@ -19,13 +20,11 @@ export  function OrganizationCredentialAws({organizationId} : {organizationId: s
 
     return (
         <div>
-            {awsCredentials && awsCredentials.length >= 1 ? awsCredentials.map((credential: any, index: number) => {
-                return (
-                    <div key={index}>
-                        <p>{credential.name}</p>
-                    </div>
-                )
-            }) : <></>}
+            <Table headersTab={["Name", "Description", "Created At"]}
+                   lineTab={awsCredentials.map((credential: any) => {
+                           return [credential.name, credential.description, credential.createdAt]
+                       }
+                   )} EmptyComponent={<div className={"text-center text-gray-500 flex items-center justify-center w-full h-48"}>No AWS Credentials :(</div>} />
         </div>
     )
 }

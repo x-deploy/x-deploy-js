@@ -1,7 +1,7 @@
 import {Navbar} from "../../../../components/navbar/navbar";
-import {VerticalMenu} from "../../../../components/navbar/settings/vertical-menu";
+import React from "react";
 
-export default function Layout({children, params}: { children: React.ReactNode, params: {
+export default async function Layout({children, params}: { children: any, params: {
     id: string,
     }}) {
     return (

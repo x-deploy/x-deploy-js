@@ -7,11 +7,11 @@ import {OrganisationSwitcher, OrganisationSwitcherSkeleton} from "./organisation
 import {AvatarMenu} from "./avatar-menu";
 import {Suspense} from "react";
 
-export const Navbar = async ({navTab, organizationId, project}: {
+export async function Navbar ({navTab, organizationId, project}: {
     navTab: Array<{ name: string, href: string }>
     organizationId?: string
-    project: string
-}) => {
+    project?: string
+}) : Promise<JSX.Element> {
 
     const infos = await getProfileInfo(cookies().get("token")?.value)
     const img = infos?.profilePictureUrl ? infos.profilePictureUrl : bober
