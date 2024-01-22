@@ -1,7 +1,7 @@
 import {SwitchButton} from "../../basics/switch-button";
 import {Button} from "../../basics/buttons";
 
-export function OrganizationCredentialsNavbar() {
+export function OrganizationCredentialsNavbar({organizationId, selectedButtonTab, setSelectedButtonTab} : {organizationId?: string, selectedButtonTab?: number, setSelectedButtonTab?: any}) {
     return (
         <div className={"flex justify-between mb-4"}>
             <div>
@@ -12,7 +12,7 @@ export function OrganizationCredentialsNavbar() {
                         <div>OVH</div>,
                         <div>AWS</div>,
                     ]
-                } selectedButtonTab={0} />
+                } selectedButtonTab={selectedButtonTab} setSelectedButtonTab={setSelectedButtonTab} />
             </div>
             <div><Button variant={"primary"}>Add</Button></div>
         </div>

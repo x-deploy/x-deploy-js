@@ -6,9 +6,11 @@ export function SwitchButton(
     {
         buttonTab,
         selectedButtonTab,
+        setSelectedButtonTab,
     } : {
         buttonTab: Array<React.ReactNode>,
         selectedButtonTab?: number,
+        setSelectedButtonTab?: any,
     }
 ) {
 
@@ -22,7 +24,10 @@ export function SwitchButton(
                         roundedLeft={button === buttonTab[0]}
                         roundedRight={button === buttonTab[buttonTab.length - 1]}
                         selected={index === selected}
-                        setSelected={setSelected}
+                        setSelected={() => {
+                            setSelected(index)
+                            setSelectedButtonTab(index)
+                        }}
                         key={index}
                         index={index}
                         rightBorder={button !== buttonTab[buttonTab.length - 1]}

@@ -1,4 +1,5 @@
 import {toast} from "sonner";
+import {cookies} from "next/headers";
 
 
 export const getOrganizations = async (token?: string) => {
@@ -250,6 +251,45 @@ export const getOrganizationApiKeys = async (token?: string, organizationId?: st
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`,
             'Accept': 'application/json'
+        },
+        cache: 'no-cache',
+    })
+    const data = await response.json()
+    if (response.ok) {
+        return data
+    } else {
+        return data
+    }
+}
+
+export const getOrganizationCredentialsOvh = async (token :string ,organizationId?: string) => {
+    const response = await fetch(process.env.NEXT_PUBLIC_API_URL + `/organization/${organizationId}/credentials/ovh`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json'
+
+        },
+        cache: 'no-cache',
+    })
+    const data = await response.json()
+    if (response.ok) {
+        return data
+    } else {
+        return data
+    }
+}
+
+export const getOrganizationCredentialsAws = async (token : string, organizationId?: string) => {
+
+    const response = await fetch(process.env.NEXT_PUBLIC_API_URL + `/organization/${organizationId}/credentials/aws`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json'
+
         },
         cache: 'no-cache',
     })
