@@ -13,6 +13,7 @@ export default function Layout({children, params}: { children: React.ReactNode
                         <VerticalMenu itemList={[
                             {name: "Members", href: "/organization/" + params.id + "/members"},
                             {name: "Invitations", href: "/organization/" + params.id + "/members/invitation"},
+                            {name: "Roles", href: "/organization/" + params.id + "/members/role"},
                         ]}/>
                     </div>
                     <div className={"w-full"}>
