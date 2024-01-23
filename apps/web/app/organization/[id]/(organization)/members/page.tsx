@@ -23,7 +23,11 @@ export default async function Page({params}: {
                    lineTab={members.map((member: any) => {
                        return [member.firstname, member.lastname, member.email, member.role,
                            <MembersPopover memberId={member.id}/>]
-                   })}
+                   })} EmptyComponent={
+                <div className={"flex flex-col justify-center items-center h-48"}>
+                    <p className={"text-gray-500 text-sm"}>No members yet :(</p>
+                </div>
+            }
             />
         </>
     )

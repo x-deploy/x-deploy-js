@@ -20,6 +20,10 @@ export default async function Page({params}: {
                 invitations.map((invitation : any) => {
                     return [invitation.firstname, invitation.lastname, invitation.email]
                 })
+            } EmptyComponent={
+                <div className={"flex flex-col justify-center items-center h-48"}>
+                    <p className={"text-gray-500 text-sm"}>No invitations yet :(</p>
+                </div>
             }
             />
         </>)
