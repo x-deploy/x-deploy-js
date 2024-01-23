@@ -37,16 +37,20 @@ export const AvatarMenu = ({img, topText}: {
     )
 }
 
-export const AvatarMenuButton = ({href, children}: {
+export const AvatarMenuButton = ({href, children, click, danger}: {
     href: string
     children: React.ReactNode
+    click?: any
+    danger?: boolean
 }) => {
     return (
-        <Link href={href} passHref>
+        <Link href={href} passHref onClick={click}>
             <div
-                className={"text-gray-500 dark:hover:text-white hover:text-black p-2 pl-4 font-light dark:hover:bg-gray-900 hover:bg-gray-200 transition-all duration-75"}>
+                className={"text-gray-500 dark:hover:text-white hover:text-black p-2 pl-4 font-light dark:hover:bg-gray-900 hover:bg-gray-200 transition-all duration-75" + (danger ? " text-red-500" : "")}>
                 {children}
             </div>
         </Link>
     )
 }
+
+

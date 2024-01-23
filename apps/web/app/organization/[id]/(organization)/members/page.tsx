@@ -2,8 +2,12 @@ import {getOrganizationMembers} from "../../../../../lib/fetch";
 import {cookies} from "next/headers";
 import {Table} from "../../../../../components/basics/table/table";
 import {MembersNavbar} from "../../../../../components/organization/members/members-navbar";
+import {Button} from "../../../../../components/basics/buttons";
+import {Popover, PopoverContent, PopoverTrigger} from "../../../../../@/components/ui/popover";
+import {Card, CardContent} from "../../../../../components/basics/card";
+import {AvatarMenuButton} from "../../../../../components/navbar/avatar-menu";
 
-export default async function Page({params} : {
+export default async function Page({params}: {
     params: {
         id: string,
     }
@@ -15,11 +19,39 @@ export default async function Page({params} : {
     return (
         <>
             <MembersNavbar/>
-            <Table headersTab={["Firstname","Lastname", "Email", "Role"]}
+            <Table headersTab={["Firstname", "Lastname", "Email", "Role", ""]}
                    lineTab={members.map((member: any) => {
-                       return [member.firstname, member.lastname, member.email, member.role]
+                       return [member.firstname, member.lastname, member.email, member.role,
+                           <MembersPopover memberId={member.id}/>]
                    })}
             />
         </>
+    )
+}
+
+export async function MembersPopover({memberId}: {
+    memberId: string
+}) {
+
+    return (
+        <Popover>
+            <PopoverTrigger asChild>
+                <p>...</p>
+            </PopoverTrigger>
+            <PopoverContent style={
+                {
+                    border: "none",
+                }
+            }>
+                <Card className={"w-32"}>
+                        <div className={"py-2"}>
+                            <AvatarMenuButton href={""}>Edit Role</AvatarMenuButton>
+                            <div>
+                                <AvatarMenuButton href={""} danger>Remove</AvatarMenuButton>
+                            </div>
+                        </div>
+                </Card>
+            </PopoverContent>
+        </Popover>
     )
 }
