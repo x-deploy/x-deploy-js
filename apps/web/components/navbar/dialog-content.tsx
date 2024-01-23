@@ -1,7 +1,7 @@
 import {Card, CardContent, CardTitle} from "../basics/card";
 import {ProjectDialogForm} from "./project-dialog-form";
 
-export function DialogContentOrganization({closeDialog, organization}: { closeDialog?: any, organization: any }) {
+export function DialogContentOrganization({closeDialog, organizationId}: { closeDialog?: any, organizationId: string }) {
     console.log("closeDialog in DialogContentOrganization component:", closeDialog);
 
     return (
@@ -12,7 +12,7 @@ export function DialogContentOrganization({closeDialog, organization}: { closeDi
                         <div>Create a new project</div>
                     </div>
                 </CardTitle>
-                <ProjectDialogForm closeDialog={closeDialog} organizationId={organization.id}/>
+                <ProjectDialogForm closeDialog={closeDialog} organizationId={organizationId}/>
 
             </div>
         </CardContent>

@@ -12,6 +12,7 @@ export const ProjectDialogForm = ({closeDialog, organizationId} : { closeDialog:
     return (
         <div className={"mt-4"}>
             <form action={async (formData : FormData) => {
+                console.log(organizationId)
                 const data = await newProject(organizationId, formData);
                 if (data.success) {
                     toast.success("Project created")

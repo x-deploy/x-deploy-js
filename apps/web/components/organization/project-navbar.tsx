@@ -13,7 +13,7 @@ export const ProjectNavbar = ({organizationId} : { organizationId: string }) => 
                             <Button variant={"primary"}>New Project</Button>
                         </DialogTrigger>
                         <DialogContent>
-                            <DialogContentOrganization organization={organizationId}/>
+                            <DialogContentOrganization organizationId={organizationId}/>
                         </DialogContent>
                     </Dialog>
                 </div>

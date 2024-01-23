@@ -74,6 +74,7 @@ export const newProject = async (organizationId: string, formData: FormData) => 
     })
     const data =  await response.json();
     if (response.ok) {
+        revalidatePath('/organization/[id]')
         return {success: true}
     }
     return data
