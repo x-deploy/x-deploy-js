@@ -14,7 +14,7 @@ export default async function Page({params}: {
 
     return (
         <>
-            <RoleNavbar/>
+            <RoleNavbar organizationId={params.id}/>
             <Table headersTab={["Name", "Description", "Permissions"]} lineTab={
                 roles.map((role : any) => {
                     return [role.name, role.description, role.permissions]

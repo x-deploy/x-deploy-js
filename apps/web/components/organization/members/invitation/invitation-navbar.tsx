@@ -2,8 +2,9 @@ import {CardContent, CardTitle} from "../../../basics/card";
 import {TextInput} from "../../../basics/text-input";
 import {Dialog, DialogContent, DialogTrigger} from "../../../basics/dialog/dialog";
 import {Button} from "../../../basics/buttons";
+import {InvitationNavbarDialog} from "./invitation-navbar-dialog";
 
-export function InvitationNavbar() {
+export function InvitationNavbar({organizationId} : {organizationId: string}) {
     return (
         <div className={"w-full flex justify-between mb-4"}>
             <div></div>
@@ -18,16 +19,7 @@ export function InvitationNavbar() {
                         <CardContent>
                             <CardTitle>Invite a new member</CardTitle>
                             <p className={"text-gray-400 text-sm"}>Enter the email of the person you want to invite</p>
-                            <div className={"w-96"}>
-                                <div className={"mt-2"}>
-                                    <TextInput placeholder={"Email"}/>
-                                </div>
-                                <div className={"flex justify-end"}>
-                                    <div className={"mt-4"}>
-                                        <Button variant={"primary"}>Invite</Button>
-                                    </div>
-                                </div>
-                            </div>
+                            <InvitationNavbarDialog organizationId={organizationId}/>
                         </CardContent>
                     </DialogContent>
                 </Dialog>

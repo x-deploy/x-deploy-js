@@ -2,6 +2,7 @@
 import {redirect} from "next/navigation";
 import {cookies} from 'next/headers'
 import {getOrganizations} from "./fetch";
+import {revalidatePath} from "next/cache";
 
 export const login = async (formData: FormData) => {
     const email = formData.get('email')
@@ -113,4 +114,25 @@ export const newOrganization = async (formData: FormData) => {
     const organizationId = organizations.find((organization: any) => organization.name === name).id
     console.log(organizationId)
     return {...data, id: organizationId}
+}
+
+export const newRole = async (organizationId: string, formData: FormData) => {
+    const name = formData.get('name');
+    const description = formData.get('description');
+    console.log(name, description)
+    const response = await fetch(process.env.NEXT_PUBLIC_API_URL + `/organization/${organizationId}/role`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + cookies().get('token')?.value,
+        },
+        body: JSON.stringify({name, description}),
+    })
+    const data = await response.json();
+    if (response.ok) {
+        revalidatePath('/organization/[id]/members/role')
+        return {success: true}
+
+    }
+    return data
 }
