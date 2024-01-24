@@ -29,7 +29,7 @@ export async function Navbar ({navTab, organizationId, project}: {
                 <div className={"items-center hidden md:flex"}>
                     <div className={"flex pr-8"}>
                         <Navbutton href={"/help"}>Help</Navbutton>
-                        <Navbutton href={"/help"}>Documentation</Navbutton>
+                        <Navbutton href={process.env.NEXT_PUBLIC_DOC_URL}>Documentation</Navbutton>
                         <Navbutton href={"/organization/" + organizationId}>Organization</Navbutton>
                     </div>
                     <AvatarMenu img={img} topText={infos.email}/>
