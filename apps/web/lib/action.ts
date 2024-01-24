@@ -7,7 +7,7 @@ import {revalidatePath} from "next/cache";
 export const login = async (formData: FormData) => {
     const email = formData.get('email')
     const password = formData.get('password')
-    const response = await fetch(process.env.NEXT_PUBLIC_API_URL + '/auth/login', {
+    const response = await fetch(process.env.NEXT_PUBLIC_API_URL + '/auth/login/credentials', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
