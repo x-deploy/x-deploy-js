@@ -1,6 +1,8 @@
 import NextAuth from "next-auth";
 import GitHubProvider from "next-auth/providers/github";
 import {fetchOauth} from "../../../../lib/fetch";
+import {toast} from "sonner";
+import {cookies} from "next/headers";
 
 const handler = NextAuth({
     providers: [
@@ -10,15 +12,18 @@ const handler = NextAuth({
         })
     ],
     pages: {
-        signIn: "/auth/login"
+        signIn: "/login"
     },
     callbacks: {
         async jwt({ token, account, profile, user, session,  } : any) {
             if (account) {
                 const apiAccessToken = await fetchOauth(account.provider, account.access_token)
                 if (apiAccessToken) {
-                    console.log(apiAccessToken)
-                    token.accessToken = apiAccessToken.token
+                    if (!apiAccessToken.error) {
+                        cookies().set("token", apiAccessToken.token);
+                    } else {
+                        cookies().set("error", apiAccessToken.error);
+                    }
                 }
             }
             return token;
@@ -29,5 +34,7 @@ const handler = NextAuth({
         }
     },
 })
+
+//TODO to type better
 
 export { handler as GET, handler as POST }

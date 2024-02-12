@@ -3,8 +3,12 @@ import {login} from "../../lib/action";
 import {TextInput} from "../basics/text-input";
 import {Button} from "../basics/buttons";
 import {toast} from "sonner";
+import {useEffect, useState} from "react";
+import {getProviders, signIn} from "next-auth/react";
 
 export default function LoginClientForm() {
+
+
     return (
         <form action={async (formData : FormData) => {
             const data = await login(formData);
